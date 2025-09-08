@@ -138,24 +138,25 @@
             overflow: hidden;
         }
         
+        /* Default: Hide mobile notices on desktop */
+        .mobile-mermaid-notice {
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             .mermaid-container {
-                display: none; /* Hide mermaid diagrams completely on mobile */
+                display: none !important; /* Hide mermaid diagrams completely on mobile */
             }
             
             .mobile-mermaid-notice {
-                display: block;
+                display: block !important;
                 background: #f8fafc;
-                border: 2px dashed #d1d5db;
+                border: none;
                 border-radius: 12px;
-                padding: 20px;
-                text-align: center;
+                padding: 0;
+                text-align: left;
                 margin: 20px 0;
             }
-        }
-        
-        .mobile-mermaid-notice {
-            display: none;
         }
         
         .mermaid-container .mermaid {
