@@ -302,7 +302,7 @@
             <a href="#static-option" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Option 1: Static Website</a>
           </li>
           <li>
-            <a href="#cms-option" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Option 2: CMS-Integrated</a>
+            <a href="#cms-option" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Option 2: Dynamic Website</a>
           </li>
           <li>
             <a href="#features" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Features Breakdown</a>
@@ -861,7 +861,7 @@
             <div class="page-transition">
               <div class="text-center mb-16">
                 <span class="inline-block bg-hudo-green/10 text-hudo-green px-4 py-2 rounded-full text-sm font-medium mb-4">Option 2</span>
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">CMS-Integrated Website</h2>
+                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Dynamic Website</h2>
                 <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
                   Dynamic content management with Sanity CMS, offering flexibility, scalability, and easy content updates without technical expertise.
                 </p>
@@ -1263,7 +1263,10 @@
 
                     <div class="p-8 space-y-6">
                       <div>
-                        <div class="text-4xl font-bold text-neutral-900 mb-1">$3,000 - $5,000</div>
+                        <div class="text-2xl font-bold text-neutral-900 mb-2">
+                          <div>Single page: <span id="static-single">$400 - $800</span></div>
+                          <div>Multiple pages: <span id="static-multi">$1,200 - $1,600</span></div>
+                        </div>
                         <div class="text-neutral-600 text-sm">One-time development cost</div>
                       </div>
 
@@ -1308,14 +1311,17 @@
                   <!-- CMS-Integrated -->
                   <div>
                     <div class="bg-gradient-to-br from-hudo-green to-emerald-600 p-8 text-black">
-                      <h3 class="font-serif text-2xl font-semibold mb-2">CMS-Integrated</h3>
+                      <h3 class="font-serif text-2xl font-semibold mb-2">Dynamic Website</h3>
                       <p class="text-emerald-500">Dynamic, scalable content management</p>
                     </div>
 
                     <div class="p-8 space-y-6">
                       <div>
-                        <div class="text-4xl font-bold text-neutral-900 mb-1">$5,000 - $8,000</div>
-                        <div class="text-neutral-600 text-sm">Development + $99/month CMS</div>
+                        <div class="text-2xl font-bold text-neutral-900 mb-2">
+                          <div>Single page: <span id="dynamic-single">$1,200 - $1,600</span></div>
+                          <div>Multiple pages: <span id="dynamic-multi">$1,600 - $2,000</span></div>
+                        </div>
+                        <div class="text-neutral-600 text-sm">Development cost</div>
                       </div>
 
                       <div>
@@ -1391,7 +1397,7 @@
                     : &#34;Quality assurance&#34;
                     : &#34;Deployment&#34;
 
-                    section &#34;CMS-Integrated&#34;
+                    section &#34;Dynamic Website&#34;
                     &#34;Week 1-2&#34; : &#34;Design &amp; Planning&#34;
                     : &#34;Requirements analysis&#34;
                     : &#34;CMS architecture&#34;
@@ -1765,24 +1771,24 @@
                   <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                     <i class="fas fa-envelope text-emerald-400 text-2xl mb-3"></i>
                     <h4 class="font-semibold mb-2">Email</h4>
-                    <a href="mailto:hello@webdevpro.com" class="text-blue-100 hover:text-white transition-colors">
-                      hello@webdevpro.com
+                    <a href="mailto:contact@sheriax.com" class="text-blue-100 hover:text-white transition-colors" id="contact-email">
+                      contact@sheriax.com
                     </a>
                   </div>
 
                   <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                     <i class="fas fa-phone text-emerald-400 text-2xl mb-3"></i>
                     <h4 class="font-semibold mb-2">Phone</h4>
-                    <a href="tel:+971555123456" class="text-blue-100 hover:text-white transition-colors">
-                      +971 55 512 3456
+                    <a href="tel:+917338923502" class="text-blue-100 hover:text-white transition-colors" id="contact-phone">
+                      +91 7338923502
                     </a>
                   </div>
 
                   <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                     <i class="fas fa-globe text-emerald-400 text-2xl mb-3"></i>
                     <h4 class="font-semibold mb-2">Website</h4>
-                    <a href="https://webdevpro.com" class="text-blue-100 hover:text-white transition-colors">
-                      webdevpro.com
+                    <a href="https://sheriax.com" class="text-blue-100 hover:text-white transition-colors" id="contact-website">
+                      https://sheriax.com
                     </a>
                   </div>
                 </div>
@@ -2143,6 +2149,54 @@
         // Initialize mermaid on page load
         document.addEventListener('DOMContentLoaded', function() {
             initializeMermaidControls();
+        });
+
+        // ============================================================================
+        // PRICING AND CONTACT CONFIGURATION
+        // ============================================================================
+        // Update these variables to change pricing and contact information throughout the site
+        
+        const PRICING = {
+            static: {
+                single: { min: 400, max: 800 },
+                multi: { min: 1200, max: 1600, pages: "4-5" }
+            },
+            dynamic: {
+                single: { min: 1200, max: 1600 },
+                multi: { min: 1600, max: 2000 }
+            }
+        };
+
+        const CONTACT = {
+            email: "contact@sheriax.com",
+            phone: "+91 7338923502",
+            website: "https://sheriax.com"
+        };
+
+        // Auto-populate pricing and contact elements if they have the correct IDs
+        document.addEventListener('DOMContentLoaded', function() {
+            const fmt = (min, max) => `$${min.toLocaleString()} - $${max.toLocaleString()}`;
+            const byId = id => document.getElementById(id);
+            
+            // Update pricing elements
+            if (byId("static-single")) byId("static-single").textContent = fmt(PRICING.static.single.min, PRICING.static.single.max);
+            if (byId("static-multi")) byId("static-multi").textContent = `${fmt(PRICING.static.multi.min, PRICING.static.multi.max)} (${PRICING.static.multi.pages} pages)`;
+            if (byId("dynamic-single")) byId("dynamic-single").textContent = fmt(PRICING.dynamic.single.min, PRICING.dynamic.single.max);
+            if (byId("dynamic-multi")) byId("dynamic-multi").textContent = fmt(PRICING.dynamic.multi.min, PRICING.dynamic.multi.max);
+
+            // Update contact elements
+            if (byId("contact-email")) {
+                byId("contact-email").textContent = CONTACT.email;
+                byId("contact-email").href = `mailto:${CONTACT.email}`;
+            }
+            if (byId("contact-phone")) {
+                byId("contact-phone").textContent = CONTACT.phone;
+                byId("contact-phone").href = `tel:${CONTACT.phone.replace(/\s/g, '')}`;
+            }
+            if (byId("contact-website")) {
+                byId("contact-website").textContent = CONTACT.website;
+                byId("contact-website").href = CONTACT.website;
+            }
         });
     </script>
   
