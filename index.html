@@ -1431,16 +1431,110 @@
               <div class="mb-12">
                 <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-8 text-center">Development Timeline Comparison</h3>
                 
-                <!-- Mobile Notice -->
+                <!-- Mobile Timeline Comparison -->
                 <div class="mobile-mermaid-notice">
-                  <div class="mb-3">
-                    <i class="fas fa-calendar-alt text-3xl text-neutral-400 mb-2"></i>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Static Website Timeline -->
+                    <div class="bg-white border-2 border-solar-blue/20 rounded-lg p-6">
+                      <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-solar-blue rounded-lg flex items-center justify-center">
+                          <i class="fas fa-rocket text-white text-lg"></i>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-neutral-900 text-lg">Static Website</h4>
+                          <p class="text-solar-blue text-sm font-medium">4-6 Weeks Total</p>
+                        </div>
+                      </div>
+                      
+                      <div class="space-y-4">
+                        <div class="border-l-4 border-solar-blue/30 pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 1-2</h5>
+                            <span class="text-xs text-solar-blue bg-solar-blue/10 px-2 py-1 rounded">Planning</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Requirements gathering & UI/UX design</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-solar-blue/50 pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 2-4</h5>
+                            <span class="text-xs text-white bg-solar-blue px-2 py-1 rounded">Development</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Frontend coding & content integration</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-solar-blue pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 4-6</h5>
+                            <span class="text-xs text-white bg-solar-blue px-2 py-1 rounded">Launch</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Quality assurance & deployment</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Dynamic Website Timeline -->
+                    <div class="bg-white border-2 border-hudo-green/20 rounded-lg p-6">
+                      <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-hudo-green rounded-lg flex items-center justify-center">
+                          <i class="fas fa-cogs text-white text-lg"></i>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-neutral-900 text-lg">Dynamic Website</h4>
+                          <p class="text-hudo-green text-sm font-medium">6-8 Weeks Total</p>
+                        </div>
+                      </div>
+                      
+                      <div class="space-y-4">
+                        <div class="border-l-4 border-hudo-green/30 pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 1-2</h5>
+                            <span class="text-xs text-hudo-green bg-hudo-green/10 px-2 py-1 rounded">Planning</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Requirements analysis & CMS architecture</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-hudo-green/50 pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 2-5</h5>
+                            <span class="text-xs text-white bg-hudo-green px-2 py-1 rounded">Development</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Frontend development & CMS setup</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-hudo-green pl-4">
+                          <div class="flex justify-between items-center mb-1">
+                            <h5 class="font-semibold text-neutral-800 text-sm">Week 5-8</h5>
+                            <span class="text-xs text-white bg-hudo-green px-2 py-1 rounded">Training</span>
+                          </div>
+                          <p class="text-neutral-600 text-xs">Testing, training & content migration</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h4 class="font-semibold text-neutral-800 mb-2">Timeline Comparison</h4>
-                  <p class="text-neutral-600 text-sm">
-                    The interactive timeline comparison is best viewed on desktop. 
-                    Both website options' timelines are detailed in the pricing cards above.
-                  </p>
+                  
+                  <!-- Key Differences -->
+                  <div class="mt-6 bg-neutral-50 rounded-lg p-4">
+                    <h5 class="font-semibold text-neutral-800 mb-3 text-center">Key Timeline Differences</h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                      <div class="flex items-center space-x-2">
+                        <i class="fas fa-clock text-solar-blue"></i>
+                        <span class="text-neutral-600"><strong>Static:</strong> Faster to market (4-6 weeks)</span>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <i class="fas fa-tools text-hudo-green"></i>
+                        <span class="text-neutral-600"><strong>Dynamic:</strong> More complex setup (6-8 weeks)</span>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <i class="fas fa-rocket text-blue-500"></i>
+                        <span class="text-neutral-600"><strong>Static:</strong> Immediate deployment ready</span>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <i class="fas fa-graduation-cap text-emerald-500"></i>
+                        <span class="text-neutral-600"><strong>Dynamic:</strong> Includes CMS training phase</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
                 <div class="mermaid-container">
