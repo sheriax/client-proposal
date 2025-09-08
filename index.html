@@ -140,13 +140,22 @@
         
         @media (max-width: 768px) {
             .mermaid-container {
-                padding: 15px;
-                margin: 20px 0;
-                min-height: 250px;
-                max-height: 500px;
-                border-radius: 8px;
-                padding-bottom: 60px; /* Make room for controls */
+                display: none; /* Hide mermaid diagrams completely on mobile */
             }
+            
+            .mobile-mermaid-notice {
+                display: block;
+                background: #f8fafc;
+                border: 2px dashed #d1d5db;
+                border-radius: 12px;
+                padding: 20px;
+                text-align: center;
+                margin: 20px 0;
+            }
+        }
+        
+        .mobile-mermaid-notice {
+            display: none;
         }
         
         .mermaid-container .mermaid {
@@ -802,6 +811,19 @@
               <!-- Page Structure Visualization -->
               <div class="mb-12">
                 <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-6 text-center">Core Page Structure</h3>
+                
+                <!-- Mobile Notice -->
+                <div class="mobile-mermaid-notice">
+                  <div class="mb-3">
+                    <i class="fas fa-mobile-alt text-3xl text-neutral-400 mb-2"></i>
+                  </div>
+                  <h4 class="font-semibold text-neutral-800 mb-2">Interactive Diagram</h4>
+                  <p class="text-neutral-600 text-sm">
+                    This interactive site structure diagram is optimized for desktop viewing. 
+                    Please view on a larger screen to explore the detailed page hierarchy and navigation flow.
+                  </p>
+                </div>
+                
                 <div class="mermaid-container">
                   <div class="mermaid-controls">
                     <button class="mermaid-control-btn zoom-in" title="放大">
@@ -1408,6 +1430,19 @@
               <!-- Timeline Visualization -->
               <div class="mb-12">
                 <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-8 text-center">Development Timeline Comparison</h3>
+                
+                <!-- Mobile Notice -->
+                <div class="mobile-mermaid-notice">
+                  <div class="mb-3">
+                    <i class="fas fa-calendar-alt text-3xl text-neutral-400 mb-2"></i>
+                  </div>
+                  <h4 class="font-semibold text-neutral-800 mb-2">Timeline Comparison</h4>
+                  <p class="text-neutral-600 text-sm">
+                    The interactive timeline comparison is best viewed on desktop. 
+                    Both website options' timelines are detailed in the pricing cards above.
+                  </p>
+                </div>
+                
                 <div class="mermaid-container">
                   <div class="mermaid-controls">
                     <button class="mermaid-control-btn zoom-in" title="放大">
@@ -1952,14 +1987,43 @@
 
             if (fullscreenBtn) {
                 fullscreenBtn.addEventListener('click', () => {
-                if (container.requestFullscreen) {
-                    container.requestFullscreen();
-                } else if (container.webkitRequestFullscreen) {
-                    container.webkitRequestFullscreen();
-                } else if (container.msRequestFullscreen) {
-                    container.msRequestFullscreen();
-                }
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                        // Enter fullscreen
+                        if (container.requestFullscreen) {
+                            container.requestFullscreen();
+                        } else if (container.webkitRequestFullscreen) {
+                            container.webkitRequestFullscreen();
+                        } else if (container.msRequestFullscreen) {
+                            container.msRequestFullscreen();
+                        }
+                    } else {
+                        // Exit fullscreen
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        } else if (document.webkitExitFullscreen) {
+                            document.webkitExitFullscreen();
+                        } else if (document.msExitFullscreen) {
+                            document.msExitFullscreen();
+                        }
+                    }
                 });
+                
+                // Update button icon based on fullscreen state
+                function updateFullscreenButton() {
+                    const icon = fullscreenBtn.querySelector('i');
+                    if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                        icon.className = 'fas fa-compress';
+                        fullscreenBtn.title = '退出全屏';
+                    } else {
+                        icon.className = 'fas fa-expand';
+                        fullscreenBtn.title = '全屏查看';
+                    }
+                }
+                
+                // Listen for fullscreen changes
+                document.addEventListener('fullscreenchange', updateFullscreenButton);
+                document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+                document.addEventListener('msfullscreenchange', updateFullscreenButton);
             }
 
             // Mouse Events
