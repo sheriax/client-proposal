@@ -793,25 +793,7 @@ function setupDownload() {
   });
 }
 
-/* Approvals (placeholder actions) */
-function setupApprovals() {
-  $('#btnApproveDynamic')?.addEventListener('click', () => {
-    const lang = getLang();
-    const msg =
-      lang === 'ar'
-        ? TRANSLATIONS.ar['ALERT_DYNAMIC']
-        : 'Thank you! We’ll proceed with the Dynamic (CMS) option and schedule a kickoff.';
-    alert(msg);
-  });
-  $('#btnApproveStatic')?.addEventListener('click', () => {
-    const lang = getLang();
-    const msg =
-      lang === 'ar'
-        ? TRANSLATIONS.ar['ALERT_STATIC']
-        : 'Thank you! We’ll proceed with the Static option and schedule a kickoff.';
-    alert(msg);
-  });
-}
+/* Approvals removed: buttons were removed from UI, so this setup is no longer needed. */
 
 /* Init */
 document.addEventListener('DOMContentLoaded', () => {
@@ -822,5 +804,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setupReveal();
   initMermaid();
   setupDownload();
-  setupApprovals();
 });
