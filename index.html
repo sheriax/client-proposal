@@ -1,2358 +1,1252 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Professional Website Development Proposal | Solar Technical Company &amp; Hudo Alsama Oil &amp; Gas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <style>
-        :root {
-            --solar-blue: #1e3a8a;
-            --solar-blue-light: #3b82f6;
-            --hudo-green: #059669;
-            --hudo-green-light: #10b981;
-            --hudo-green-dark: #047857;
-            --accent-orange: #f97316;
-            --neutral-50: #fafafa;
-            --neutral-100: #f5f5f5;
-            --neutral-200: #e5e5e5;
-            --neutral-300: #d4d4d4;
-            --neutral-600: #525252;
-            --neutral-800: #262626;
-            --neutral-900: #171717;
-        }
-        
-        .font-serif { font-family: 'Crimson Text', serif; }
-        .font-sans { font-family: 'Inter', sans-serif; }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, 
-                rgba(30, 58, 138, 0.9) 0%, 
-                rgba(5, 150, 105, 0.8) 50%, 
-                rgba(249, 115, 22, 0.7) 100%);
-        }
-        
-        .toc-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 280px;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-right: 1px solid var(--neutral-200);
-            z-index: 50;
-            overflow-y: auto;
-            padding: 2rem 1.5rem;
-        }
-        
-        .content-offset {
-            margin-left: 280px;
-        }
-        
-        .section-anchor {
-            scroll-margin-top: 2rem;
-        }
-        
-        .citation-link {
-            color: var(--solar-blue);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px dotted var(--solar-blue);
-        }
-        
-        .citation-link:hover {
-            background-color: rgba(30, 58, 138, 0.1);
-            border-bottom-style: solid;
-        }
-        
-@media (max-width: 1024px) {
-    .toc-fixed { display: none; }
-    .content-offset { margin-left: 0; }
-}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 
-@media (max-width: 768px) {
-    .mermaid-control-btn {
-        font-size: 12px;
-        min-width: 32px;
-        height: 32px;
-        padding: 8px;
-    }
-    .mermaid-controls {
-        top: auto;
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        padding: 6px;
-        gap: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .mermaid-control-btn:hover {
-        transform: none;
-    }
-    
-    /* Mobile hero section improvements */
-    .hero-mobile-spacing {
-        gap: 1.5rem;
-    }
-    
-    /* Improve mobile text readability */
-    .mobile-text-shadow {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-}
-        
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 1.5rem;
-            align-items: start;
-        }
-        
-        @media (max-width: 1024px) {
-            .bento-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-        
-        .mermaid-container {
-            display: flex;
-            justify-content: center;
-            min-height: 300px;
-            max-height: 800px;
-            background: #ffffff;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Default: Hide mobile notices on desktop */
-        .mobile-mermaid-notice {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .mermaid-container {
-                display: none !important; /* Hide mermaid diagrams completely on mobile */
-            }
-            
-            .mobile-mermaid-notice {
-                display: block !important;
-                background: #f8fafc;
-                border: none;
-                border-radius: 12px;
-                padding: 0;
-                text-align: left;
-                margin: 20px 0;
-            }
-        }
-        
-        .mermaid-container .mermaid {
-            width: 100%;
-            max-width: 100%;
-            height: 100%;
-            cursor: grab;
-            transition: transform 0.3s ease;
-            transform-origin: center center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            touch-action: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .mermaid-container .mermaid svg {
-            max-width: 100%;
-            height: 100%;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .mermaid-container .mermaid:active {
-            cursor: grabbing;
-        }
-        
-        .mermaid-container.zoomed .mermaid {
-            height: 100%;
-            width: 100%;
-            cursor: grab;
-        }
-        
-        .mermaid-controls {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            gap: 10px;
-            z-index: 20;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 8px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .mermaid-control-btn {
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #374151;
-            font-size: 14px;
-            min-width: 36px;
-            height: 36px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .mermaid-control-btn:hover {
-            background: #f8fafc;
-            border-color: #3b82f6;
-            color: #3b82f6;
-            transform: translateY(-1px);
-        }
-        
-        .mermaid-control-btn:active {
-            transform: scale(0.95);
-        }
-        
-        /* Mermaid theme customization for better contrast and unified styling */
-        .mermaid svg {
-            max-width: 100%;
-            height: auto;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .mermaid .node rect,
-        .mermaid .node circle,
-        .mermaid .node ellipse,
-        .mermaid .node polygon {
-            fill: var(--neutral-50);
-            stroke: var(--neutral-600);
-            stroke-width: 2px;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-        }
-        
-        .mermaid .node .label {
-            color: var(--neutral-800);
-            font-weight: 500;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .mermaid .edgePath .path {
-            stroke: var(--neutral-600);
-            stroke-width: 2px;
-            fill: none;
-        }
-        
-        .mermaid .edgeLabel {
-            background-color: white;
-            color: var(--neutral-800);
-            font-weight: 500;
-            font-size: 12px;
-            font-family: 'Inter', sans-serif;
-            padding: 2px 6px;
-            border-radius: 4px;
-            border: 1px solid var(--neutral-300);
-        }
-        
-        .mermaid .cluster rect {
-            fill: var(--neutral-100);
-            stroke: var(--neutral-400);
-            stroke-width: 1px;
-        }
-        
-        .mermaid .cluster .label {
-            color: var(--neutral-700);
-            font-weight: 600;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Enhanced node styling for better contrast */
-        .mermaid .node[class*="default"] rect {
-            fill: #ffffff;
-            stroke: var(--neutral-600);
-        }
-        
-        .mermaid .node[class*="default"] .label {
-            color: var(--neutral-900);
-            font-weight: 600;
-        }
-        
-        /* Timeline specific styling with better contrast */
-        .mermaid .section0 {
-            fill: var(--solar-blue) !important;
-        }
-        
-        .mermaid .section1 {
-            fill: var(--hudo-green) !important;
-        }
-        
-        .mermaid .section2 {
-            fill: var(--accent-orange) !important;
-        }
-        
-        .mermaid .section3 {
-            fill: var(--neutral-600) !important;
-        }
-        
-        .mermaid .section0, .mermaid .section1, .mermaid .section2, .mermaid .section3 {
-            font-weight: 600 !important;
-            font-family: 'Inter', sans-serif !important;
-        }
-        
-        .page-transition {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .page-transition.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solar Technical Company (K.S.A.) — Website Development Quotation (WDP-2025-0911-ST-HA)</title>
+  <meta name="description"
+    content="Professional website development quotation for Solar Technical Company (K.S.A.). Dynamic (Sanity CMS) and Static options with detailed scope, pricing, and implementation plan." />
+  <meta name="color-scheme" content="light dark" />
 
-  <body class="bg-neutral-50 text-neutral-800 font-sans overflow-x-hidden">
-    <!-- Fixed Table of Contents -->
-    <nav class="toc-fixed">
-      <div class="mb-8">
-        <h3 class="font-serif text-lg font-semibold text-neutral-900 mb-4">Table of Contents</h3>
-        <ul class="space-y-3 text-sm">
-          <li>
-            <a href="#hero" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Cover Slide</a>
-          </li>
-          <li>
-            <a href="#introduction" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Introduction</a>
-          </li>
-          <li>
-            <a href="#digital-imperative" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">The Digital Imperative</a>
-          </li>
-          <li>
-            <a href="#static-option" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Option 1: Static Website</a>
-          </li>
-          <li>
-            <a href="#cms-option" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Option 2: Dynamic Website</a>
-          </li>
-          <li>
-            <a href="#features" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Features Breakdown</a>
-          </li>
-          <li>
-            <a href="#costing" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Costing &amp; Timeline</a>
-          </li>
-          <li>
-            <a href="#maintenance" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Maintenance &amp; Support</a>
-          </li>
-          <li>
-            <a href="#closing" class="text-neutral-600 hover:text-solar-blue transition-colors block py-1">Closing &amp; Next Steps</a>
-          </li>
+  <!-- Required CDN Dependencies (exact links as requested) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --primary-blue-light: #3b82f6;
+      --secondary-green: #059669;
+      --secondary-green-light: #10b981;
+      --secondary-green-dark: #047857;
+      --accent-orange: #f97316;
+      --neutral-50: #fafafa;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-600: #525252;
+      --neutral-800: #262626;
+      --neutral-900: #171717;
+    }
+
+    /* Typography helpers */
+    .font-sans {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .font-serif {
+      font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: white;
+      color: var(--neutral-900);
+    }
+
+    [data-theme="dark"] body,
+    [data-theme="dark"] {
+      color-scheme: dark;
+      background: #0b1220;
+      color: #e6e6e6;
+    }
+
+    [dir="rtl"] * {
+      letter-spacing: 0.1px;
+    }
+
+    /* Fixed sidebar / TOC */
+    .sidebar {
+      position: fixed;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: 280px;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.7);
+      border-inline-end: 1px solid var(--neutral-200);
+      backdrop-filter: blur(10px) saturate(120%);
+    }
+
+    [data-theme="dark"] .sidebar {
+      background: rgba(10, 12, 20, 0.5);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .content-offset {
+      margin-inline-start: 280px;
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+
+      .content-offset {
+        margin-inline-start: 0;
+      }
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      color: var(--neutral-800);
+      text-decoration: none;
+    }
+
+    [data-theme="dark"] .toc-link {
+      color: #d6d6d6;
+    }
+
+    .toc-link.active {
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .toc-link.active {
+      color: #9ecbff;
+    }
+
+    /* Anchors */
+    .section-anchor {
+      scroll-margin-top: 2rem;
+    }
+
+    /* Hero */
+    .hero-gradient {
+      background: radial-gradient(1000px 600px at -10% -30%, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.0)),
+        radial-gradient(800px 500px at 110% -20%, rgba(16, 185, 129, 0.16), rgba(59, 130, 246, 0.0)),
+        linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.92));
+    }
+
+    [data-theme="dark"] .hero-gradient {
+      background: radial-gradient(1000px 600px at -10% -30%, rgba(59, 130, 246, 0.18), rgba(16, 185, 129, 0.0)),
+        radial-gradient(800px 500px at 110% -20%, rgba(16, 185, 129, 0.22), rgba(59, 130, 246, 0.0)),
+        linear-gradient(180deg, rgba(6, 10, 20, 0.95), rgba(6, 10, 20, 0.85));
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px) saturate(130%);
+    }
+
+    [data-theme="dark"] .glass {
+      background: rgba(16, 20, 32, 0.6);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Reveal on view (no text-jitter animations) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mermaid container with pan/zoom */
+    .mermaid-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      border: 1px solid var(--neutral-200);
+      background: var(--neutral-50);
+    }
+
+    [data-theme="dark"] .mermaid-container {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .mermaid-toolbar {
+      position: absolute;
+      right: .5rem;
+      top: .5rem;
+      display: flex;
+      gap: .25rem;
+      z-index: 5;
+    }
+
+    .toolbar-btn {
+      padding: .4rem .5rem;
+      border-radius: .5rem;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      color: var(--neutral-800);
+    }
+
+    .toolbar-btn:hover {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="dark"] .toolbar-btn {
+      background: rgba(16, 20, 32, 0.6);
+      color: #eaeaea;
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .mermaid-stage {
+      width: 100%;
+      height: 100%;
+      touch-action: pinch-zoom pan-x pan-y;
+    }
+
+    /* Utility pills */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border-radius: 999px;
+      padding: .25rem .6rem;
+      font-size: .75rem;
+      font-weight: 600;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    [data-theme="dark"] .chip {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(16, 20, 32, 0.6);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-green) 100%);
+      color: #fff;
+      padding: .7rem 1rem;
+      border-radius: .65rem;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 1px solid var(--primary-blue);
+      padding: .7rem 1rem;
+      border-radius: .65rem;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .btn-secondary {
+      color: #9ecbff;
+      border-color: #3b82f6;
+    }
+
+    /* Accents */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(59, 130, 246, 0.12);
+      color: var(--primary-blue);
+      padding: .25rem .5rem;
+      border-radius: .5rem;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: #0b1220 !important;
+    }
+
+    [data-theme="dark"] p {
+      color: #eaeaea !important;
+    }
+
+    [data-theme="dark"] .badge {
+      background: rgba(59, 130, 246, 0.2);
+      color: #c7e2ff;
+    }
+
+    /* Accessibility helpers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-3 focus:py-2 focus:bg-white focus:rounded focus:shadow">Skip
+    to content</a>
+
+  <!-- Fixed Sidebar (Desktop) -->
+  <aside class="sidebar" aria-label="Table of contents">
+    <div class="h-full flex flex-col">
+      <div class="p-5 border-b border-neutral-200/70 dark:border-white/10">
+        <div class="flex items-center gap-3">
+          <div
+            class="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-600 to-emerald-500 flex items-center justify-center text-white">
+            <i class="fa-solid fa-solar-panel text-lg"></i>
+          </div>
+          <div>
+            <div class="text-sm text-black dark:text-neutral-300">Proposal</div>
+            <div id="companyName" class="font-semibold">Solar Technical Company</div>
+          </div>
+        </div>
+        <div class="mt-3 text-xs text-black dark:text-neutral-400">
+          <div><span class="font-semibold">ID:</span> <span id="proposalId">WDP-2025-0911-ST-HA</span></div>
+          <div><span class="font-semibold">Date:</span> <span id="proposalDate">2025/09/11</span></div>
+          <div><span class="font-semibold">Valid:</span> <span id="proposalValidity">30 days</span></div>
+        </div>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto p-4 space-y-1 text-sm" id="tocNav">
+        <a class="toc-link" href="#hero">Overview</a>
+        <a class="toc-link" href="#introduction">Introduction</a>
+        <a class="toc-link" href="#scope">Scope & Structure</a>
+        <a class="toc-link" href="#tech-stack">Technology Stack</a>
+        <a class="toc-link" href="#pricing">Pricing & Investment</a>
+        <a class="toc-link" href="#timeline">Implementation Timeline</a>
+        <a class="toc-link" href="#value-adds">Value-Added Inclusions</a>
+        <a class="toc-link" href="#appendix">Appendix: Page Structure</a>
+        <a class="toc-link" href="#contact">Next Steps & Contact</a>
+      </nav>
+
+      <!-- Quick reference -->
+      <div class="p-4 border-t border-neutral-200/70 dark:border-white/10 text-sm">
+        <div class="font-semibold mb-2">Quick Reference</div>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2"><span class="chip"><i class="fa-solid fa-coins text-blue-600"></i> Dynamic
+              Total</span> <span id="dynamicTotal" class="font-semibold ml-auto">₹—</span></li>
+          <li class="flex items-center gap-2"><span class="chip"><i class="fa-solid fa-file-code text-emerald-600"></i>
+              Static Total</span> <span id="staticTotal" class="font-semibold ml-auto">₹—</span></li>
+          <li class="flex items-center gap-2"><span class="chip"><i class="fa-solid fa-clock text-amber-600"></i>
+              Timeline</span> <span class="ml-auto">4–6 weeks</span></li>
         </ul>
-      </div>
-
-      <div class="border-t border-neutral-200 pt-6">
-        <h4 class="font-medium text-sm text-neutral-800 mb-3">Quick Reference</h4>
-        <div class="space-y-2 text-xs text-neutral-600">
-          <div><span class="font-medium">Date:</span> 2025/09/09</div>
-          <div><span class="font-medium">ID:</span> WDP-2025-0909-ST-HA</div>
-          <div><span class="font-medium">Validity:</span> 30 days</div>
+        <div class="mt-4 space-x-2">
+          <button id="themeToggle" class="btn-secondary text-sm"><i
+              class="fa-solid fa-circle-half-stroke mr-2"></i>Theme</button>
+          <button id="langToggle" class="btn-secondary text-sm"><i class="fa-solid fa-language mr-2"></i>EN/AR</button>
         </div>
       </div>
-    </nav>
+    </div>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="content-offset">
-      <!-- Hero Section -->
-      <section id="hero" class="section-anchor min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-emerald-900 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-          <img src="https://kimi-web-img.moonshot.cn/img/pub.mdpi-res.com/2228633b1dd07c0f7229d43c3c32a0b0dd1b1b35.png" alt="Abstract background pattern of solar panels and industrial gears" class="w-full h-full object-cover" size="wallpaper" aspect="wide" style="photo" query="abstract solar panels and gears background" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+  <!-- Main Content -->
+  <main id="main-content" class="content-offset">
+    <!-- Hero -->
+    <header id="hero" class="section-anchor hero-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+        <!-- Top bar (mobile tools) -->
+        <div class="flex items-center justify-between lg:hidden mb-6">
+          <div class="flex items-center gap-3">
+            <div
+              class="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-600 to-emerald-500 flex items-center justify-center text-white">
+              <i class="fa-solid fa-solar-panel text-lg"></i>
+            </div>
+            <div>
+              <div class="text-xs text-black dark:text-neutral-300">Proposal</div>
+              <div id="companyNameMobile" class="font-semibold">Solar Technical Company</div>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button id="themeToggleMobile" class="btn-secondary text-xs"><i
+                class="fa-solid fa-circle-half-stroke"></i></button>
+            <button id="langToggleMobile" class="btn-secondary text-xs"><i class="fa-solid fa-language"></i></button>
+          </div>
         </div>
 
-        <!-- Hero Content Grid -->
-        <div class="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">
-          <div class="bento-grid max-w-7xl mx-auto">
-            <!-- Main Title Area -->
-            <div class="space-y-6 sm:space-y-8">
-              <div class="space-y-4 sm:space-y-6">
-                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight mobile-text-shadow">
-                  <span class="block italic text-emerald-300">Professional</span>
-                  <span class="block">Website Development</span>
-                  <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-blue-200 mt-2 md:mt-4">Proposal for Industry Leaders</span>
-                </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+          <!-- Left (2fr) -->
+          <div class="lg:col-span-2 reveal">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="badge"><i class="fa-solid fa-building-shield"></i><span>Solar Technical Co.
+                  (K.S.A.)</span></span>
+              <span class="badge"><i class="fa-solid fa-hashtag"></i><span
+                  id="proposalIdBadge">WDP-2025-0911-ST-HA</span></span>
+              <span class="badge"><i class="fa-solid fa-calendar-day"></i><span
+                  id="proposalDateBadge">2025/09/11</span></span>
+              <span class="badge"><i class="fa-solid fa-bolt"></i><span>Dynamic + Static Options</span></span>
+            </div>
 
-                <p class="text-lg sm:text-xl text-blue-100 max-w-2xl leading-relaxed mobile-text-shadow">
-                  Establishing robust digital presence for Solar Technical Company (K.S.A.) and Hudo Alsama Oil &amp; Gas (U.A.E.) through two distinct, professional-grade development approaches.
-                </p>
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+              Website Development Quotation
+            </h1>
+            <p class="mt-4 text-black dark:text-neutral-300 max-w-3xl">
+              A professional, dynamic, and scalable website to establish a strong digital presence, showcase technical
+              expertise, and drive client engagement. Includes a Sanity CMS option for easy content management and an
+              alternative Static site option for comparison.
+            </p>
+
+            <!-- Bento highlights -->
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div class="glass p-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="h-10 w-10 rounded-md bg-blue-600/10 text-blue-700 dark:text-blue-300 flex items-center justify-center">
+                    <i class="fa-solid fa-diagram-project"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold">Dynamic (CMS) Website</div>
+                    <div class="text-sm text-black dark:text-neutral-400">Sanity.io + Next.js + Tailwind</div>
+                  </div>
+                </div>
+                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                  <li>CMS-managed content and dynamic templates</li>
+                  <li>Video + carousel hero, responsive UI</li>
+                  <li>Resend-powered contact form</li>
+                </ul>
               </div>
 
-              <!-- Key Highlights -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-8 sm:mt-12">
-                <div class="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-white/20">
-                  <div class="flex items-center space-x-3 mb-3">
-                    <i class="fas fa-solar-panel text-xl sm:text-2xl text-emerald-300"></i>
-                    <h3 class="font-semibold text-white text-sm sm:text-base">Solar Technical Company</h3>
+              <div class="glass p-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="h-10 w-10 rounded-md bg-emerald-600/10 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
+                    <i class="fa-solid fa-code"></i>
                   </div>
-                  <p class="text-blue-100 text-xs sm:text-sm">Renewable energy solutions in the Kingdom of Saudi Arabia</p>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-white/20">
-                  <div class="flex items-center space-x-3 mb-3">
-                    <i class="fas fa-industry text-xl sm:text-2xl text-orange-300"></i>
-                    <h3 class="font-semibold text-white text-sm sm:text-base">Hudo Alsama Oil &amp; Gas</h3>
+                  <div>
+                    <div class="font-semibold">Static Website</div>
+                    <div class="text-sm text-black dark:text-neutral-400">HTML/CSS/JS + SSG</div>
                   </div>
-                  <p class="text-blue-100 text-xs sm:text-sm">Industrial mechanical works in the United Arab Emirates</p>
                 </div>
+                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                  <li>Lower initial cost</li>
+                  <li>Developer-assisted content updates</li>
+                  <li>Serverless function for contact form</li>
+                </ul>
               </div>
             </div>
 
-            <!-- Proposal Overview Card -->
-            <div class="bg-white/95 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl border border-white/20">
-              <h2 class="font-serif text-xl sm:text-2xl font-semibold text-neutral-900 mb-4 sm:mb-6">Executive Summary</h2>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#pricing" class="btn-primary"><i class="fa-solid fa-coins mr-2"></i>View Pricing</a>
+              <a href="#timeline" class="btn-secondary"><i class="fa-solid fa-timeline mr-2"></i>See Timeline</a>
+            </div>
+          </div>
 
-              <div class="space-y-6">
-                <div>
-                  <h3 class="font-medium text-neutral-800 mb-2">Two Distinct Approaches</h3>
-                  <ul class="space-y-2 text-sm text-neutral-600">
-                    <li class="flex items-start space-x-2">
-                      <i class="fas fa-rocket text-solar-blue mt-0.5"></i>
-                      <span><strong>Static:</strong> High-performance, one-time cost solution</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fas fa-cogs text-hudo-green mt-0.5"></i>
-                      <span><strong>CMS-Integrated:</strong> Dynamic, scalable with Sanity CMS</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="border-t border-neutral-200 pt-4">
-                  <h3 class="font-medium text-neutral-800 mb-2">Strategic Objectives</h3>
-                  <ul class="space-y-1 text-sm text-neutral-600">
-                    <li>• Establish market credibility</li>
-                    <li>• Showcase technical expertise</li>
-                    <li>• Drive business growth</li>
-                    <li>• Enhance client communication</li>
-                  </ul>
-                </div>
+          <!-- Right (1fr) Executive Summary -->
+          <aside class="glass p-6 reveal">
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-300 flex items-center justify-center">
+                <i class="fa-solid fa-clipboard-list"></i>
               </div>
+              <h2 class="font-semibold">Executive Summary</h2>
+            </div>
+            <p class="mt-3 text-sm text-black dark:text-neutral-300">
+              We propose a dynamic, CMS-enabled website with a professional design system, performant frontend, and
+              robust content workflows. An alternative static implementation is also provided for comparison.
+            </p>
+            <ul class="mt-4 space-y-3 text-sm">
+              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Dynamic hero
+                with seamless video-to-carousel transition</li>
+              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> CMS-driven
+                services, gallery, and content pages</li>
+              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Resend-secured
+                contact form and Google Maps embed</li>
+              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Dual-theme,
+                bilingual-ready, and on-site SEO</li>
+            </ul>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
+                <div class="text-black dark:text-neutral-300">Dynamic Total</div>
+                <div id="dynamicTotalHero" class="font-semibold text-lg">₹—</div>
+              </div>
+              <div class="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
+                <div class="text-black dark:text-neutral-300">Static Total</div>
+                <div id="staticTotalHero" class="font-semibold text-lg">₹—</div>
+              </div>
+            </div>
+            <div class="mt-4 text-xs text-black dark:text-neutral-400">
+              Recurring costs: Sanity Free, Resend Free, Hosting Free Tier, Domain (~₹1,200/year)
+            </div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <!-- Introduction -->
+    <section id="introduction" class="section-anchor py-20 bg-white dark:bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Introduction</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+            The website will elevate Solar Technical Company's digital presence in K.S.A., showcasing engineering
+            credibility, service depth, and proof of work while enabling effortless content updates via Sanity CMS.
+          </p>
+        </header>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="glass p-5 reveal">
+            <div class="chip"><i class="fa-solid fa-users"></i> Target Audience</div>
+            <p class="mt-3 text-sm text-black dark:text-neutral-300">
+              Industrial and commercial clients, government/municipal buyers, and EPC partners seeking reliable solar
+              engineering solutions.
+            </p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="chip"><i class="fa-solid fa-bullseye"></i> Objectives</div>
+            <ul class="mt-3 text-sm text-black dark:text-neutral-300 list-disc ms-5 space-y-1">
+              <li>Communicate credibility with galleries, certificates, and awards</li>
+              <li>Drive qualified inquiries via secure contact form</li>
+              <li>Ensure fast updates without developer dependency (Dynamic option)</li>
+            </ul>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="chip"><i class="fa-solid fa-shield-halved"></i> Principles</div>
+            <ul class="mt-3 text-sm text-black dark:text-neutral-300 list-disc ms-5 space-y-1">
+              <li>Performance and accessibility</li>
+              <li>Professional visual language (dark blue aesthetic)</li>
+              <li>SEO and scalable information architecture</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scope & Structure -->
+    <section id="scope" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Project Scope & Finalized Structure</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">Pages and components aligned to your approved
+            structure.</p>
+        </header>
+
+        <div class="mt-8 grid lg:grid-cols-3 gap-6">
+          <!-- Home -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-house text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Home Page</h3>
+            </div>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Dynamic hero: looping video with seamless zoom, transitions to carousel</li>
+              <li>About, Services (CMS-driven), Our Customers, Why Choose Us</li>
+              <li>Comprehensive footer with navigation and social links</li>
+            </ul>
+          </article>
+
+          <!-- Services -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-screwdriver-wrench text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Service Details (Dynamic Template)</h3>
+            </div>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Reusable template generates one page per CMS service</li>
+              <li>Fields for descriptions, specs, image galleries, related case studies</li>
+            </ul>
+          </article>
+
+          <!-- Gallery -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-images text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Gallery</h3>
+            </div>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Filterable: Projects (Images/Videos), Certificates, Awards, Achievements</li>
+              <li>All items managed via CMS for credibility and freshness</li>
+            </ul>
+          </article>
+
+          <!-- Contact -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Contact Page</h3>
+            </div>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Embedded Google Map with “Get Directions”</li>
+              <li>Secure contact form: Name, Phone, Email, Message, Reference</li>
+              <li>Submissions routed via Resend with success/error handling</li>
+            </ul>
+          </article>
+
+          <!-- About -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-info text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">About Us</h3>
+            </div>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Derived from official documents with company history and team</li>
+              <li>Structured for SEO with semantic HTML and schema</li>
+            </ul>
+          </article>
+
+          <!-- Customers -->
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-user-check text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Our Customers</h3>
+            </div>
+            <p class="mt-3 text-sm text-black dark:text-neutral-300">
+              CMS-managed client logos and names (initially placeholders), designed to scale as your portfolio grows.
+            </p>
+          </article>
+        </div>
+
+        <!-- Workflow Diagram -->
+        <div class="mt-10 reveal">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-semibold">High-Level System Workflow</h3>
+            <span class="text-xs text-black dark:text-neutral-400">Interactive diagram (zoom, pan,
+              fullscreen)</span>
+          </div>
+          <div class="mermaid-container h-[420px]" id="workflowBox" aria-label="Mermaid diagram: high-level workflow">
+            <div class="mermaid-toolbar">
+              <button class="toolbar-btn" data-zoom-in title="Zoom in"><i
+                  class="fa-solid fa-magnifying-glass-plus"></i></button>
+              <button class="toolbar-btn" data-zoom-out title="Zoom out"><i
+                  class="fa-solid fa-magnifying-glass-minus"></i></button>
+              <button class="toolbar-btn" data-reset title="Reset view"><i
+                  class="fa-solid fa-rotate-right"></i></button>
+              <button class="toolbar-btn" data-fullscreen title="Fullscreen"><i
+                  class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+            </div>
+            <div class="mermaid-stage p-3">
+              <div class="mermaid" id="workflowDiagram">
+                graph TD
+                A[Sanity CMS]:::node -->|Content API| B[Next.js Frontend]
+                B -->|Deployed| C[Vercel/Netlify CDN]
+                D[Visitor]:::user -->|Requests| C
+                D -->|Submits Form| E[Contact Form Handler]
+                E -->|Deliver Email| F[Resend API]
+                F -->|Routes To| G[Company Inbox]
+
+                classDef node fill:#E0F2FE,stroke:#1e3a8a,stroke-width:1px,color:#1e3a8a;
+                classDef user fill:#DCFCE7,stroke:#059669,stroke-width:1px,color:#065f46;
+              </div>
+            </div>
+            <div class="px-3 pb-3 text-xs text-black dark:text-neutral-400">
+              Tip: Drag to pan. Use trackpad pinch or the +/– buttons to zoom.
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Introduction Section -->
-      <section id="introduction" class="section-anchor py-20 bg-white">
-        <div class="container mx-auto px-8">
-          <div class="max-w-4xl mx-auto">
-            <div class="page-transition">
-              <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-8">Understanding Your Business</h2>
+    <!-- Technology Stack -->
+    <section id="tech-stack" class="section-anchor py-20 bg-white dark:bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Technology Stack (Dynamic Website)</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+            A modern, scalable stack optimized for performance, SEO, and easy content management.
+          </p>
+        </header>
 
-              <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-neutral-600 leading-relaxed mb-8">
-                  This proposal outlines two distinct, professional website development options tailored to the specific needs of your esteemed companies. The primary objective is to establish a robust and credible digital presence that reflects your industry leadership while serving as powerful tools for business growth, client engagement, and brand building in the competitive markets of Saudi Arabia and the United Arab Emirates.
-                </p>
-              </div>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-brands fa-react text-sky-600 dark:text-sky-300 text-xl"></i>
+              <h3 class="font-semibold">Next.js (React)</h3>
+            </div>
+            <p class="text-sm text-black dark:text-neutral-300">
+              Server-side rendering and static generation for fast, SEO-friendly pages.
+            </p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-paintbrush text-indigo-600 dark:text-indigo-300 text-xl"></i>
+              <h3 class="font-semibold">Tailwind CSS</h3>
+            </div>
+            <p class="text-sm text-black dark:text-neutral-300">
+              Rapid, professional UI development with responsive, accessible components.
+            </p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-database text-emerald-600 dark:text-emerald-300 text-xl"></i>
+              <h3 class="font-semibold">Sanity.io CMS</h3>
+            </div>
+            <p class="text-sm text-black dark:text-neutral-300">
+              Headless CMS for flexible content schemas (services, galleries, pages) and real-time editing.
+            </p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-paper-plane text-rose-600 dark:text-rose-300 text-xl"></i>
+              <h3 class="font-semibold">Resend (Email)</h3>
+            </div>
+            <p class="text-sm text-black dark:text-neutral-300">
+              Reliable email delivery for the contact form with secure server-side handling.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-              <!-- Company Profiles Grid -->
-              <div class="grid lg:grid-cols-2 gap-12 mt-16">
-                <!-- Solar Technical Company -->
-                <div class="space-y-8">
-                  <div class="flex items-center space-x-4 mb-6">
-                    <div class="w-16 h-16 bg-solar-blue rounded-lg flex items-center justify-center">
-                      <i class="fas fa-solar-panel text-white text-2xl"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-serif text-2xl font-semibold text-neutral-900">Solar Technical Company</h3>
-                      <p class="text-solar-blue font-medium">Kingdom of Saudi Arabia</p>
-                    </div>
-                  </div>
+    <!-- Pricing & Investment -->
+    <section id="pricing" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Pricing & Investment</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+            End-to-end design, development, and deployment costs based on your approved scope.
+          </p>
+        </header>
 
-                  <div class="space-y-6">
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Industry Focus</h4>
-                      <p class="text-neutral-600 leading-relaxed">
-                        Operating at the forefront of Saudi Arabia&#39;s ambitious energy transformation, Solar Technical Company specializes in comprehensive renewable energy services. The company delivers design, installation, and maintenance of advanced solar panel systems across residential, commercial, and utility-scale projects <a href="https://www.sciencedirect.com/science/article/abs/pii/S0957178725000852" class="citation-link" target="_blank">[409]</a>.
-                      </p>
-                    </div>
+        <div class="mt-8 grid lg:grid-cols-2 gap-6">
+          <!-- Dynamic -->
+          <article class="glass p-5 reveal" aria-label="Dynamic website pricing">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Dynamic Website (with CMS)</h3>
+              <span class="chip"><i class="fa-solid fa-bolt text-amber-600"></i> Recommended</span>
+            </div>
+            <table class="w-full mt-4 text-sm">
+              <thead class="text-left text-black dark:text-neutral-400">
+                <tr>
+                  <th class="py-2">Service</th>
+                  <th class="py-2">Description</th>
+                  <th class="py-2 text-right">Cost (INR)</th>
+                </tr>
+              </thead>
+              <tbody id="dynamicTable" class="align-top"></tbody>
+              <tfoot>
+                <tr class="border-t border-neutral-200 dark:border-white/10">
+                  <td colspan="2" class="py-3 font-semibold">One-Time Development Cost</td>
+                  <td id="dynamicTotalCell" class="py-3 font-semibold text-right">₹—</td>
+                </tr>
+              </tfoot>
+            </table>
 
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Market Position</h4>
-                      <p class="text-neutral-600 leading-relaxed">
-                        Strategically positioned to capitalize on Saudi Arabia&#39;s vast solar potential and Vision 2030 initiatives, targeting the National Renewable Energy Program&#39;s goal of 50% renewable energy generation by 2030 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0957178725000852" class="citation-link" target="_blank">[409]</a>
-                        <a href="https://mpra.ub.uni-muenchen.de/123077/1/MPRA_paper_123077.pdf" class="citation-link" target="_blank">[431]</a>.
-                      </p>
-                    </div>
+            <div class="mt-4 text-xs text-black dark:text-neutral-400">
+              Recurring: Sanity (Free), Resend (Free), Hosting (Free Tier), Domain (~₹1,200/year)
+            </div>
+          </article>
 
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Digital Objectives</h4>
-                      <ul class="text-neutral-600 space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-star text-solar-blue mt-1"></i>
-                          <span>Establish technical credibility and reliability</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-project-diagram text-solar-blue mt-1"></i>
-                          <span>Showcase diverse project portfolio</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-handshake text-solar-blue mt-1"></i>
-                          <span>Facilitate client and partner communication</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+          <!-- Static -->
+          <article class="glass p-5 reveal" aria-label="Static website pricing">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Static Website</h3>
+              <span class="chip"><i class="fa-solid fa-scale-balanced text-blue-600"></i> Alternative</span>
+            </div>
+            <table class="w-full mt-4 text-sm">
+              <thead class="text-left text-black dark:text-neutral-400">
+                <tr>
+                  <th class="py-2">Service</th>
+                  <th class="py-2">Description</th>
+                  <th class="py-2 text-right">Cost (INR)</th>
+                </tr>
+              </thead>
+              <tbody id="staticTable" class="align-top"></tbody>
+              <tfoot>
+                <tr class="border-t border-neutral-200 dark:border-white/10">
+                  <td colspan="2" class="py-3 font-semibold">One-Time Development Cost</td>
+                  <td id="staticTotalCell" class="py-3 font-semibold text-right">₹—</td>
+                </tr>
+              </tfoot>
+            </table>
+          </article>
+        </div>
 
-                <!-- Hudo Alsama -->
-                <div class="space-y-8">
-                  <div class="flex items-center space-x-4 mb-6">
-                    <div class="w-16 h-16 bg-hudo-green rounded-lg flex items-center justify-center">
-                      <i class="fas fa-industry text-white text-2xl"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-serif text-2xl font-semibold text-neutral-900">Hudo Alsama Oil &amp; Gas</h3>
-                      <p class="text-hudo-green font-medium">United Arab Emirates</p>
-                    </div>
-                  </div>
-
-                  <div class="space-y-6">
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Industry Focus</h4>
-                      <p class="text-neutral-600 leading-relaxed">
-                        Specialized firm providing comprehensive industrial mechanical works, project contracting, and technical services within the demanding oil and gas sector of the UAE. Essential services for refineries, petrochemical plants, and upstream installations <a href="https://www.saipem.com/sites/default/files/2019-03/2258spm_MMO.pdf" class="citation-link" target="_blank">[411]</a>.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Market Position</h4>
-                      <p class="text-neutral-600 leading-relaxed">
-                        Operating in the UAE&#39;s mature industrial landscape, serving major operators including ADNOC and international joint venture partners. Success depends on demonstrating technical excellence, safety commitment, and proven expertise <a href="https://mpra.ub.uni-muenchen.de/123077/1/MPRA_paper_123077.pdf" class="citation-link" target="_blank">[431]</a>.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Digital Objectives</h4>
-                      <ul class="text-neutral-600 space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-certificate text-hudo-green mt-1"></i>
-                          <span>Establish authoritative industry presence</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-tools text-hudo-green mt-1"></i>
-                          <span>Highlight comprehensive service offerings</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-shield-alt text-hudo-green mt-1"></i>
-                          <span>Demonstrate safety and quality commitment</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <!-- Feature matrix -->
+        <div class="mt-8 reveal">
+          <h3 class="font-semibold mb-3">Feature Comparison</h3>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="glass p-4">
+              <div class="font-semibold mb-2"><i class="fa-solid fa-bolt text-amber-600 mr-2"></i>Dynamic (CMS)</div>
+              <ul class="list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                <li>CMS content updates without developer assistance</li>
+                <li>Dynamic service templates and gallery</li>
+                <li>Scales easily with new sections</li>
+              </ul>
+            </div>
+            <div class="glass p-4">
+              <div class="font-semibold mb-2"><i class="fa-solid fa-code text-emerald-600 mr-2"></i>Static</div>
+              <ul class="list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                <li>Lower initial investment</li>
+                <li>Content updates billed separately</li>
+                <li>Suitable for infrequent updates</li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Digital Imperative Section -->
-      <section id="digital-imperative" class="section-anchor py-20 bg-neutral-100">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">The Digital Imperative</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  In today&#39;s interconnected economy, a professional website is fundamental for establishing credibility, reaching markets, and driving business development.
-                </p>
-              </div>
+    <!-- Timeline (Mermaid Gantt) -->
+    <section id="timeline" class="section-anchor py-20 bg-white dark:bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Implementation Timeline (4–6 Weeks)</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">A realistic, milestone-based plan from
+            discovery to deployment and handover.</p>
+        </header>
 
-              <!-- Problem-Solution Split -->
-              <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <!-- The Problem -->
-                <div class="space-y-8">
-                  <div class="text-center">
-                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-2">The Problem</h3>
-                    <p class="text-neutral-600">Limited Reach and Missed Opportunities</p>
-                  </div>
-
-                  <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-eye-slash text-red-500 mr-2"></i>
-                        Digital Invisibility
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        Without a strong digital presence, businesses are invisible to potential clients who begin their search online. This invisibility translates directly into lost revenue and missed opportunities.
-                      </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-chart-line-down text-red-500 mr-2"></i>
-                        The Credibility Gap
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        An outdated or non-existent website creates questions about legitimacy and technical capability. In high-stakes industries, this credibility gap can be a major barrier to winning business.
-                      </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
-                        Regional Context
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        Many SMEs in KSA and UAE still operate with minimal online presence, creating competitive advantage opportunities for forward-thinking companies.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- The Solution -->
-                <div class="space-y-8">
-                  <div class="text-center">
-                    <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-lightbulb text-2xl text-emerald-600"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-2">The Solution</h3>
-                    <p class="text-neutral-600">Professional, High-Performance Website</p>
-                  </div>
-
-                  <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-search text-emerald-600 mr-2"></i>
-                        Increased Visibility
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        SEO-optimized websites dramatically increase customer reach, ranking higher for relevant searches and making companies discoverable to active prospects.
-                      </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-shield-alt text-emerald-600 mr-2"></i>
-                        Building Trust &amp; Brand
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        Professional websites showcase certifications, project portfolios, and client testimonials, establishing credibility and building confidence with potential clients.
-                      </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                      <h4 class="font-semibold text-neutral-800 mb-3 flex items-center">
-                        <i class="fas fa-comments text-emerald-600 mr-2"></i>
-                        Effective Communication
-                      </h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed">
-                        Streamlined contact forms, integrated maps, and clear calls-to-action make it easy for prospects to connect and initiate business relationships.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Case Study Example -->
-              <div class="mt-20 bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
-                <div class="flex items-center space-x-4 mb-6">
-                  <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-utensils text-amber-600"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-serif text-xl font-semibold text-neutral-900">Case Study: The Sharjah Restaurant</h3>
-                    <p class="text-neutral-600">A powerful illustration of digital necessity</p>
-                  </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-3">The Challenge</h4>
-                    <p class="text-neutral-600 text-sm leading-relaxed mb-4">
-                      Despite excellent food and local following, a Sharjah restaurant struggled to attract tourists due to complete lack of online presence—no website, social media, or directory listings.
-                    </p>
-                    <div class="bg-red-50 p-3 rounded border-l-4 border-red-400">
-                      <p class="text-red-700 text-sm font-medium">Result: Completely invisible to potential customers searching online</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-3">The Lesson</h4>
-                    <p class="text-neutral-600 text-sm leading-relaxed mb-4">
-                      This scenario demonstrates that superior products or services are insufficient without digital discoverability—directly applicable to B2B industries where procurement managers research potential contractors online.
-                    </p>
-                    <div class="bg-emerald-50 p-3 rounded border-l-4 border-emerald-400">
-                      <p class="text-emerald-700 text-sm font-medium">Key Insight: Digital presence is fundamental to business viability</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="mt-6 mermaid-container h-[420px] reveal" id="timelineBox"
+          aria-label="Mermaid diagram: project timeline">
+          <div class="mermaid-toolbar">
+            <button class="toolbar-btn" data-zoom-in title="Zoom in"><i
+                class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button class="toolbar-btn" data-zoom-out title="Zoom out"><i
+                class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button class="toolbar-btn" data-reset title="Reset view"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="toolbar-btn" data-fullscreen title="Fullscreen"><i
+                class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+          </div>
+          <div class="mermaid-stage p-3">
+            <div class="mermaid" id="timelineDiagram">
+              gantt
+              title Project Timeline (4–6 Weeks)
+              dateFormat YYYY-MM-DD
+              section Week 1
+              Discovery & UI/UX Design :done, des1, 2025-09-11, 7d
+              section Weeks 2–4
+              Frontend Dev & CMS Integration :active, dev1, 2025-09-18, 21d
+              section Week 5
+              Integration, Testing, Feedback : test1, 2025-10-09, 7d
+              section Week 6
+              Final Revisions & Deployment : rel1, 2025-10-16, 7d
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Static Website Option -->
-      <section id="static-option" class="section-anchor py-20 bg-white">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <span class="inline-block bg-solar-blue/10 text-solar-blue px-4 py-2 rounded-full text-sm font-medium mb-4">Option 1</span>
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Static Website</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  High-performance, secure, and cost-effective solution for establishing a professional online presence with maximum reliability.
-                </p>
-              </div>
-
-              <!-- Key Benefits -->
-              <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-solar-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-rocket text-solar-blue text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">Lightning Fast</h3>
-                  <p class="text-neutral-600 text-sm">Pre-built HTML pages deliver near-instantaneous loading times</p>
-                </div>
-
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-shield-alt text-emerald-600 text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">Maximum Security</h3>
-                  <p class="text-neutral-600 text-sm">No database or server-side processing eliminates common vulnerabilities</p>
-                </div>
-
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-dollar-sign text-orange-600 text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">One-Time Cost</h3>
-                  <p class="text-neutral-600 text-sm">No ongoing CMS subscription fees or complex hosting requirements</p>
-                </div>
-              </div>
-
-              <!-- Technology Stack -->
-              <div class="bg-neutral-50 rounded-xl p-8 mb-12">
-                <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-6">Technology Stack</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-4">Core Technologies</h4>
-                    <div class="space-y-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
-                          <i class="fab fa-html5 text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">HTML5 - Semantic structure and content</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
-                          <i class="fab fa-css3-alt text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">CSS3 - Responsive styling and animations</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center">
-                          <i class="fab fa-js text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">JavaScript - Interactive functionality</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-4">Optional Enhancements</h4>
-                    <div class="space-y-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-cyan-500 rounded flex items-center justify-center">
-                          <i class="fas fa-wind text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">Tailwind CSS - Utility-first framework</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-                          <i class="fas fa-mobile-alt text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">Mobile-first responsive design</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
-                          <i class="fas fa-search text-white text-sm"></i>
-                        </div>
-                        <span class="text-neutral-700">SEO optimization built-in</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page Structure Visualization -->
-              <div class="mb-12">
-                <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-6 text-center">Core Page Structure</h3>
-                
-                <!-- Mobile Notice -->
-                <div class="mobile-mermaid-notice">
-                  <div class="mb-3">
-                    <i class="fas fa-mobile-alt text-3xl text-neutral-400 mb-2"></i>
-                  </div>
-                  <h4 class="font-semibold text-neutral-800 mb-2">Interactive Diagram</h4>
-                  <p class="text-neutral-600 text-sm">
-                    This interactive site structure diagram is optimized for desktop viewing. 
-                    Please view on a larger screen to explore the detailed page hierarchy and navigation flow.
-                  </p>
-                </div>
-                
-                <div class="mermaid-container">
-                  <div class="mermaid-controls">
-                    <button class="mermaid-control-btn zoom-in" title="放大">
-                      <i class="fas fa-search-plus"></i>
-                    </button>
-                    <button class="mermaid-control-btn zoom-out" title="缩小">
-                      <i class="fas fa-search-minus"></i>
-                    </button>
-                    <button class="mermaid-control-btn reset-zoom" title="重置">
-                      <i class="fas fa-expand-arrows-alt"></i>
-                    </button>
-                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
-                      <i class="fas fa-expand"></i>
-                    </button>
-                  </div>
-                  <div class="mermaid">
-                    graph TD
-                    A[&#34;Home Page&#34;] --&gt; B[&#34;About Us&#34;]
-                    A --&gt; C[&#34;Services&#34;]
-                    A --&gt; D[&#34;Projects&#34;]
-                    A --&gt; E[&#34;Contact&#34;]
-
-                    B --&gt; B1[&#34;Company Story&#34;]
-                    B --&gt; B2[&#34;Mission &amp; Values&#34;]
-                    B --&gt; B3[&#34;Team Introduction&#34;]
-
-                    C --&gt; C1[&#34;Service Details&#34;]
-                    C --&gt; C2[&#34;Benefits&#34;]
-                    C --&gt; C3[&#34;Case Studies&#34;]
-
-                    D --&gt; D1[&#34;Project Gallery&#34;]
-                    D --&gt; D2[&#34;Case Studies&#34;]
-                    D --&gt; D3[&#34;Client Testimonials&#34;]
-
-                    E --&gt; E1[&#34;Contact Form&#34;]
-                    E --&gt; E2[&#34;Google Maps&#34;]
-                    E --&gt; E3[&#34;Business Details&#34;]
-
-                    style A fill:#1e3a8a,stroke:#ffffff,stroke-width:2px,color:#ffffff
-                    style E fill:#059669,stroke:#ffffff,stroke-width:2px,color:#ffffff
-                    style B fill:#f97316,stroke:#ffffff,stroke-width:2px,color:#ffffff
-                    style C fill:#7c3aed,stroke:#ffffff,stroke-width:2px,color:#ffffff
-                    style D fill:#dc2626,stroke:#ffffff,stroke-width:2px,color:#ffffff
-                  </div>
-                </div>
-              </div>
-
-              <!-- Core Page Descriptions -->
-              <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                  <div class="border-l-4 border-solar-blue pl-6">
-                    <h4 class="font-semibold text-neutral-900 mb-2">Home Page</h4>
-                    <p class="text-neutral-600 text-sm">Strong first impression with hero section, value proposition, key services overview, and clear calls-to-action directing visitors to conversion points.</p>
-                  </div>
-
-                  <div class="border-l-4 border-emerald-600 pl-6">
-                    <h4 class="font-semibold text-neutral-900 mb-2">About Us</h4>
-                    <p class="text-neutral-600 text-sm">Compelling company story, mission and values, team introductions with professional bios, and timeline of key milestones demonstrating industry experience.</p>
-                  </div>
-
-                  <div class="border-l-4 border-purple-600 pl-6">
-                    <h4 class="font-semibold text-neutral-900 mb-2">Services</h4>
-                    <p class="text-neutral-600 text-sm">Detailed service descriptions with benefits, high-quality visuals, technical specifications, and client testimonials showcasing expertise.</p>
-                  </div>
-                </div>
-
-                <div class="space-y-6">
-                  <div class="border-l-4 border-red-600 pl-6">
-                    <h4 class="font-semibold text-neutral-900 mb-2">Projects</h4>
-                    <p class="text-neutral-600 text-sm">Visual portfolio with high-quality images, detailed case studies, client testimonials, and project specifications demonstrating successful delivery.</p>
-                  </div>
-
-                  <div class="border-l-4 border-amber-600 pl-6">
-                    <h4 class="font-semibold text-neutral-900 mb-2">Contact</h4>
-                    <p class="text-neutral-600 text-sm">User-friendly contact form, embedded Google Maps, comprehensive business details, and multiple communication channels for easy client access.</p>
-                  </div>
-
-                  <div class="bg-neutral-50 p-4 rounded-lg">
-                    <h4 class="font-semibold text-neutral-900 mb-2 text-sm">Key Advantages</h4>
-                    <ul class="text-xs text-neutral-600 space-y-1">
-                      <li>• Maximum performance and speed</li>
-                      <li>• Enhanced security profile</li>
-                      <li>• Predictable one-time cost</li>
-                      <li>• Simplified hosting requirements</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="px-3 pb-3 text-xs text-black dark:text-neutral-400">
+            Tip: Use the toolbar to zoom/pan. On mobile, use two-finger pinch/drag.
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CMS Option -->
-      <section id="cms-option" class="section-anchor py-20 bg-neutral-100">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <span class="inline-block bg-hudo-green/10 text-hudo-green px-4 py-2 rounded-full text-sm font-medium mb-4">Option 2</span>
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Dynamic Website</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Dynamic content management with Sanity CMS, offering flexibility, scalability, and easy content updates without technical expertise.
-                </p>
-              </div>
-
-              <!-- Key Benefits -->
-              <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-hudo-green/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-edit text-hudo-green text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">Easy Management</h3>
-                  <p class="text-neutral-600 text-sm">Intuitive admin dashboard for effortless content updates</p>
-                </div>
-
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-expand-arrows-alt text-blue-600 text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">Highly Scalable</h3>
-                  <p class="text-neutral-600 text-sm">Add features like blogs, multilingual support, and more</p>
-                </div>
-
-                <div class="text-center">
-                  <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-users text-purple-600 text-xl"></i>
-                  </div>
-                  <h3 class="font-semibold text-neutral-900 mb-2">Collaborative</h3>
-                  <p class="text-neutral-600 text-sm">Real-time collaboration and content versioning</p>
-                </div>
-              </div>
-
-              <!-- Sanity CMS Overview -->
-              <div class="bg-white rounded-xl p-8 mb-12">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-4">Sanity CMS: Headless Architecture</h3>
-                    <p class="text-neutral-600 leading-relaxed mb-6">
-                      Sanity CMS serves as a powerful, flexible content backend with a modern React-based frontend. This headless architecture separates content management from presentation, enabling maximum flexibility and performance.
-                    </p>
-
-                    <div class="space-y-4">
-                      <div class="flex items-start space-x-3">
-                        <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
-                        <div>
-                          <h4 class="font-medium text-neutral-800">Real-time Collaboration</h4>
-                          <p class="text-neutral-600 text-sm">Multiple team members can work simultaneously with live updates</p>
-                        </div>
-                      </div>
-
-                      <div class="flex items-start space-x-3">
-                        <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
-                        <div>
-                          <h4 class="font-medium text-neutral-800">Structured Content</h4>
-                          <p class="text-neutral-600 text-sm">Reusable content components for consistent organization</p>
-                        </div>
-                      </div>
-
-                      <div class="flex items-start space-x-3">
-                        <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
-                        <div>
-                          <h4 class="font-medium text-neutral-800">Version Control</h4>
-                          <p class="text-neutral-600 text-sm">Full content history with easy rollback capabilities</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-neutral-50 rounded-lg p-6">
-                    <h4 class="font-semibold text-neutral-800 mb-4">Technology Stack</h4>
-                    <div class="space-y-4">
-                      <div class="flex items-center justify-between">
-                        <span class="text-neutral-700">Sanity CMS</span>
-                        <span class="bg-hudo-green text-white px-2 py-1 rounded text-xs">Backend</span>
-                      </div>
-                      <div class="flex items-center justify-between">
-                        <span class="text-neutral-700">React/Next.js</span>
-                        <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">Frontend</span>
-                      </div>
-                      <div class="flex items-center justify-between">
-                        <span class="text-neutral-700">Global CDN</span>
-                        <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs">Hosting</span>
-                      </div>
-                    </div>
-
-                    <div class="mt-6 p-4 bg-emerald-50 rounded-lg">
-                      <h5 class="font-medium text-emerald-800 mb-2">Starting at</h5>
-                      <div class="text-2xl font-bold text-emerald-600">$99/month</div>
-                      <div class="text-emerald-700 text-sm">Sanity CMS subscription</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Dynamic Content Features -->
-              <div class="mb-12">
-                <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-8 text-center">Dynamic Content Capabilities</h3>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                  <div class="space-y-8">
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-solar-blue/10 rounded-lg flex items-center justify-center">
-                          <i class="fas fa-project-diagram text-solar-blue"></i>
-                        </div>
-                        <h4 class="font-semibold text-neutral-900">Project Management</h4>
-                      </div>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-plus-circle text-emerald-500 mt-0.5"></i>
-                          <span>Add/edit projects without technical knowledge</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-images text-emerald-500 mt-0.5"></i>
-                          <span>Upload images and write descriptions easily</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-tags text-emerald-500 mt-0.5"></i>
-                          <span>Categorize and filter projects dynamically</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-hudo-green/10 rounded-lg flex items-center justify-center">
-                          <i class="fas fa-tools text-hudo-green"></i>
-                        </div>
-                        <h4 class="font-semibold text-neutral-900">Service Management</h4>
-                      </div>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-edit text-emerald-500 mt-0.5"></i>
-                          <span>Update service descriptions and pricing</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-plus text-emerald-500 mt-0.5"></i>
-                          <span>Add new services as business expands</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-sync text-emerald-500 mt-0.5"></i>
-                          <span>Keep content always current and accurate</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div class="space-y-8">
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                          <i class="fas fa-users text-purple-600"></i>
-                        </div>
-                        <h4 class="font-semibold text-neutral-900">Team Management</h4>
-                      </div>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-user-plus text-emerald-500 mt-0.5"></i>
-                          <span>Create and manage team member profiles</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-camera text-emerald-500 mt-0.5"></i>
-                          <span>Add professional photos and bios</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-handshake text-emerald-500 mt-0.5"></i>
-                          <span>Humanize your brand and build trust</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                          <i class="fas fa-newspaper text-amber-600"></i>
-                        </div>
-                        <h4 class="font-semibold text-neutral-900">Content Publishing</h4>
-                      </div>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-blog text-emerald-500 mt-0.5"></i>
-                          <span>Publish news and industry insights</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-bullhorn text-emerald-500 mt-0.5"></i>
-                          <span>Share project updates and announcements</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-search text-emerald-500 mt-0.5"></i>
-                          <span>Improve SEO with fresh, relevant content</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                      <h5 class="font-medium text-blue-800 mb-2">Future Scalability</h5>
-                      <ul class="text-blue-700 text-xs space-y-1">
-                        <li>• Multi-language support</li>
-                        <li>• Blog and news sections</li>
-                        <li>• E-commerce capabilities</li>
-                        <li>• Third-party integrations</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- Value-Added Inclusions -->
+    <section id="value-adds" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Value-Added Inclusions (Special Offer)</h2>
+        </header>
+        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-half-stroke text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Dual Theme</h3>
             </div>
+            <p class="mt-2 text-sm text-black dark:text-neutral-300">Professional Light and Dark modes with a
+              theme switcher for viewing comfort.</p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-language text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">Bilingual Ready</h3>
+            </div>
+            <p class="mt-2 text-sm text-black dark:text-neutral-300">Architecture supports English and Arabic
+              content (RTL-aware UI).</p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-magnifying-glass-chart text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">On-Site SEO</h3>
+            </div>
+            <p class="mt-2 text-sm text-black dark:text-neutral-300">Meta tags, semantic HTML, and schema markup
+              from day one.</p>
+          </article>
+          <article class="glass p-5 reveal">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-headset text-blue-600 dark:text-blue-300 text-xl"></i>
+              <h3 class="font-semibold">6 Months Support</h3>
+            </div>
+            <p class="mt-2 text-sm text-black dark:text-neutral-300">Complimentary post-launch support for bug
+              fixes and performance monitoring.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appendix -->
+    <section id="appendix" class="section-anchor py-20 bg-white dark:bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Appendix: Page Structure (Quick View)</h2>
+        </header>
+        <div class="mt-6 grid md:grid-cols-2 gap-6">
+          <div class="glass p-5 reveal">
+            <h3 class="font-semibold">Home Page Sections</h3>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Hero (Video → Carousel)</li>
+              <li>About (summary)</li>
+              <li>Services (CMS list)</li>
+              <li>Our Customers</li>
+              <li>Why Choose Us</li>
+              <li>Footer</li>
+            </ul>
+          </div>
+          <div class="glass p-5 reveal">
+            <h3 class="font-semibold">Other Pages</h3>
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <li>Service Details (dynamic template per service)</li>
+              <li>Gallery (Projects, Certificates, Awards, Achievements)</li>
+              <li>Contact (Map, Form)</li>
+              <li>About Us (detailed)</li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Features Breakdown -->
-      <section id="features" class="section-anchor py-20 bg-white">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Features Breakdown &amp; Design Elements</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Comprehensive feature set designed to meet the unique requirements of both Solar Technical Company and Hudo Alsama Oil &amp; Gas.
-                </p>
-              </div>
+    <!-- Contact / Next Steps -->
+    <section id="contact" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="reveal">
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Next Steps</h2>
+          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">Please review the options and confirm your
+            preferred approach. We will schedule a kickoff to begin design.</p>
+        </header>
 
-              <!-- Universal Features -->
-              <div class="mb-16">
-                <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-8">Universal Features for Both Options</h3>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div class="bg-neutral-50 rounded-lg p-6 text-center">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-mobile-alt text-blue-600"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Mobile Responsiveness</h4>
-                    <p class="text-neutral-600 text-sm">Adapts seamlessly to all devices and screen sizes</p>
-                  </div>
-
-                  <div class="bg-neutral-50 rounded-lg p-6 text-center">
-                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-search text-emerald-600"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">SEO Optimization</h4>
-                    <p class="text-neutral-600 text-sm">Built-in search engine optimization best practices</p>
-                  </div>
-
-                  <div class="bg-neutral-50 rounded-lg p-6 text-center">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-browser text-purple-600"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Cross-Browser Compatibility</h4>
-                    <p class="text-neutral-600 text-sm">Works perfectly across all major browsers</p>
-                  </div>
-
-                  <div class="bg-neutral-50 rounded-lg p-6 text-center">
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-map-marker-alt text-amber-600"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Maps Integration</h4>
-                    <p class="text-neutral-600 text-sm">Embedded Google Maps for easy location finding</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Company-Specific Features -->
-              <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Solar Technical Company -->
-                <div>
-                  <div class="flex items-center space-x-4 mb-6">
-                    <div class="w-16 h-16 bg-solar-blue rounded-lg flex items-center justify-center">
-                      <i class="fas fa-solar-panel text-white text-xl"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-serif text-xl font-semibold text-neutral-900">Solar Technical Company</h3>
-                      <p class="text-solar-blue font-medium">K.S.A. Specific Features</p>
-                    </div>
-                  </div>
-
-                  <div class="space-y-6">
-                    <div class="bg-blue-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-blue-900 mb-3 flex items-center">
-                        <i class="fas fa-palette text-blue-600 mr-2"></i>
-                        Branding Integration
-                      </h4>
-                      <ul class="text-blue-800 text-sm space-y-2">
-                        <li>• Dark blue color scheme implementation</li>
-                        <li>• Bilingual Arabic/English logo integration</li>
-                        <li>• Professional technical aesthetic</li>
-                        <li>• Trust-building color psychology</li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-emerald-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-emerald-900 mb-3 flex items-center">
-                        <i class="fas fa-project-diagram text-emerald-600 mr-2"></i>
-                        Project Showcase
-                      </h4>
-                      <ul class="text-emerald-800 text-sm space-y-2">
-                        <li>• Solar installation portfolio gallery</li>
-                        <li>• Detailed case studies with technical specs</li>
-                        <li>• System capacity and performance data</li>
-                        <li>• Before/after comparisons</li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-purple-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-purple-900 mb-3 flex items-center">
-                        <i class="fas fa-certificate text-purple-600 mr-2"></i>
-                        Credibility Elements
-                      </h4>
-                      <ul class="text-purple-800 text-sm space-y-2">
-                        <li>• Industry certifications display (ISO 9001)</li>
-                        <li>• Manufacturer partnerships showcase</li>
-                        <li>• Technical expertise validation</li>
-                        <li>• Quality assurance documentation</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Hudo Alsama -->
-                <div>
-                  <div class="flex items-center space-x-4 mb-6">
-                    <div class="w-16 h-16 bg-hudo-green rounded-lg flex items-center justify-center">
-                      <i class="fas fa-industry text-white text-xl"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-serif text-xl font-semibold text-neutral-900">Hudo Alsama Oil &amp; Gas</h3>
-                      <p class="text-hudo-green font-medium">U.A.E. Specific Features</p>
-                    </div>
-                  </div>
-
-                  <div class="space-y-6">
-                    <div class="bg-green-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-green-900 mb-3 flex items-center">
-                        <i class="fas fa-palette text-green-600 mr-2"></i>
-                        Branding Integration
-                      </h4>
-                      <ul class="text-green-800 text-sm space-y-2">
-                        <li>• Green text color with gear/flame logo</li>
-                        <li>• Industrial strength visual identity</li>
-                        <li>• Blue, orange, and grey complementary colors</li>
-                        <li>• Professional authoritative presence</li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-orange-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-orange-900 mb-3 flex items-center">
-                        <i class="fas fa-building text-orange-600 mr-2"></i>
-                        Industrial Showcase
-                      </h4>
-                      <ul class="text-orange-800 text-sm space-y-2">
-                        <li>• Oil &amp; gas project portfolio</li>
-                        <li>• Industrial facility case studies</li>
-                        <li>• Technical complexity demonstrations</li>
-                        <li>• Safety and compliance documentation</li>
-                      </ul>
-                    </div>
-
-                    <div class="bg-red-50 rounded-lg p-6">
-                      <h4 class="font-semibold text-red-900 mb-3 flex items-center">
-                        <i class="fas fa-shield-alt text-red-600 mr-2"></i>
-                        Authority Building
-                      </h4>
-                      <ul class="text-red-800 text-sm space-y-2">
-                        <li>• Detailed service descriptions with technical depth</li>
-                        <li>• Company history and industry experience</li>
-                        <li>• Safety records and quality certifications</li>
-                        <li>• Industry standards compliance (ISO, ASME)</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="mt-6 grid lg:grid-cols-3 gap-6">
+          <div class="glass p-5 reveal">
+            <h3 class="font-semibold">1) Review</h3>
+            <p class="text-sm text-black dark:text-neutral-300">Compare Dynamic and Static options and validate
+              the timeline.</p>
+          </div>
+          <div class="glass p-5 reveal">
+            <h3 class="font-semibold">2) Confirm</h3>
+            <p class="text-sm text-black dark:text-neutral-300">Approve the quotation and select the chosen
+              approach.</p>
+          </div>
+          <div class="glass p-5 reveal">
+            <h3 class="font-semibold">3) Kickoff</h3>
+            <p class="text-sm text-black dark:text-neutral-300">We start with discovery and UI/UX design (Week 1).
+            </p>
           </div>
         </div>
-      </section>
 
-      <!-- Costing &amp; Timeline -->
-      <section id="costing" class="section-anchor py-20 bg-neutral-100">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Costing &amp; Timeline</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Transparent pricing and realistic timelines for both development approaches, ensuring informed decision-making.
-                </p>
-              </div>
+        <div class="mt-6 flex flex-wrap gap-3 reveal">
+          <button class="btn-primary" id="btnApproveDynamic"><i class="fa-solid fa-check mr-2"></i>Approve
+            Dynamic</button>
+          <button class="btn-secondary" id="btnApproveStatic"><i class="fa-solid fa-check-double mr-2"></i>Approve
+            Static</button>
+          <button class="btn-secondary" id="btnDownload"><i class="fa-solid fa-file-arrow-down mr-2"></i>Download
+            PDF</button>
+        </div>
 
-              <!-- Comparison Table -->
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
-                <div class="grid lg:grid-cols-2">
-                  <!-- Static Website -->
-                  <div class="border-r border-neutral-200">
-                    <div class="bg-gradient-to-br from-solar-blue to-blue-600 p-8 text-black">
-                      <h3 class="font-serif text-2xl font-semibold mb-2">Static Website</h3>
-                      <p class="text-blue-500">High-performance, one-time cost solution</p>
-                    </div>
-
-                    <div class="p-8 space-y-6">
-                      <div>
-                        <div class="text-2xl font-bold text-neutral-900 mb-2">
-                          <div>Single page: <span id="static-single">$400 - $800</span></div>
-                          <div>Multiple pages: <span id="static-multi">$1,200 - $1,600</span></div>
-                        </div>
-                        <div class="text-neutral-600 text-sm">One-time development cost</div>
-                      </div>
-
-
-                      <div>
-                        <h4 class="font-semibold text-neutral-800 mb-3">What&#39;s Included</h4>
-                        <ul class="text-sm text-neutral-600 space-y-1">
-                          <li>• 4-5 page responsive website</li>
-                          <li>• SEO optimization</li>
-                          <li>• Cross-browser testing</li>
-                          <li>• 30 days support</li>
-                          <li>• Basic hosting setup</li>
-                        </ul>
-                      </div>
-
-                      <div class="bg-emerald-50 p-4 rounded-lg">
-                        <div class="flex items-center space-x-2">
-                          <i class="fas fa-check-circle text-emerald-600"></i>
-                          <span class="text-emerald-800 font-medium">No ongoing CMS fees</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- CMS-Integrated -->
-                  <div>
-                    <div class="bg-gradient-to-br from-hudo-green to-emerald-600 p-8 text-black">
-                      <h3 class="font-serif text-2xl font-semibold mb-2">Dynamic Website</h3>
-                      <p class="text-emerald-500">Dynamic, scalable content management</p>
-                    </div>
-
-                    <div class="p-8 space-y-6">
-                      <div>
-                        <div class="text-2xl font-bold text-neutral-900 mb-2">
-                          <div>Single page: <span id="dynamic-single">$1,200 - $1,600</span></div>
-                          <div>Multiple pages: <span id="dynamic-multi">$1,600 - $2,000</span></div>
-                        </div>
-                        <div class="text-neutral-600 text-sm">Development cost</div>
-                      </div>
-
-
-                      <div>
-                        <h4 class="font-semibold text-neutral-800 mb-3">What&#39;s Included</h4>
-                        <ul class="text-sm text-neutral-600 space-y-1">
-                          <li>• Complete CMS integration</li>
-                          <li>• Admin dashboard setup</li>
-                          <li>• Content management training</li>
-                          <li>• 3 user CMS license</li>
-                          <li>• 100GB monthly bandwidth</li>
-                        </ul>
-                      </div>
-
-                      <div class="bg-blue-50 p-4 rounded-lg">
-                        <div class="flex items-center space-x-2">
-                          <i class="fas fa-infinity text-blue-600"></i>
-                          <span class="text-blue-800 font-medium">Scalable for future growth</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Timeline Visualization -->
-              <div class="mb-12">
-                <h3 class="font-serif text-2xl font-semibold text-neutral-900 mb-8 text-center">Development Timeline Comparison</h3>
-                
-                <!-- Mobile Timeline Comparison -->
-                <div class="mobile-mermaid-notice">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Static Website Timeline -->
-                    <div class="bg-white border-2 border-solar-blue/20 rounded-lg p-6">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 bg-solar-blue rounded-lg flex items-center justify-center">
-                          <i class="fas fa-rocket text-white text-lg"></i>
-                        </div>
-                        <div>
-                          <h4 class="font-semibold text-neutral-900 text-lg">Static Website</h4>
-                          <div class="space-y-1">
-                            <p class="text-solar-blue text-sm font-medium">Single Page: 1 Week</p>
-                            <p class="text-solar-blue text-sm font-medium">Multi-Page: 4-5 Weeks</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="space-y-4">
-                        <div class="border-l-4 border-solar-blue/30 pl-4">
-                          <div class="mb-2">
-                            <h5 class="font-semibold text-neutral-800 text-sm mb-1">Single Page (1 Week)</h5>
-                            <span class="text-xs text-solar-blue bg-solar-blue/10 px-2 py-1 rounded">Quick Launch</span>
-                          </div>
-                          <p class="text-neutral-600 text-xs">Basic landing page, contact form, responsive design</p>
-                        </div>
-                        
-                        <div class="border-l-4 border-solar-blue/50 pl-4">
-                          <div class="mb-2">
-                            <h5 class="font-semibold text-neutral-800 text-sm mb-1">Multi-Page (4-5 Weeks)</h5>
-                            <span class="text-xs text-white bg-solar-blue px-2 py-1 rounded">Full Website</span>
-                          </div>
-                          <p class="text-neutral-600 text-xs">Complete site structure, multiple pages, advanced features</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Dynamic Website Timeline -->
-                    <div class="bg-white border-2 border-hudo-green/20 rounded-lg p-6">
-                      <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 bg-hudo-green rounded-lg flex items-center justify-center">
-                          <i class="fas fa-cogs text-white text-lg"></i>
-                        </div>
-                        <div>
-                          <h4 class="font-semibold text-neutral-900 text-lg">Dynamic Website</h4>
-                          <div class="space-y-1">
-                            <p class="text-hudo-green text-sm font-medium">Single Page: 2 Weeks</p>
-                            <p class="text-hudo-green text-sm font-medium">Multi-Page: 5-6 Weeks</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="space-y-4">
-                        <div class="border-l-4 border-hudo-green/30 pl-4">
-                          <div class="mb-2">
-                            <h5 class="font-semibold text-neutral-800 text-sm mb-1">Single Page (2 Weeks)</h5>
-                            <span class="text-xs text-hudo-green bg-hudo-green/10 px-2 py-1 rounded">CMS Setup</span>
-                          </div>
-                          <p class="text-neutral-600 text-xs">Basic CMS integration, content management, training</p>
-                        </div>
-                        
-                        <div class="border-l-4 border-hudo-green/50 pl-4">
-                          <div class="mb-2">
-                            <h5 class="font-semibold text-neutral-800 text-sm mb-1">Multi-Page (5-6 Weeks)</h5>
-                            <span class="text-xs text-white bg-hudo-green px-2 py-1 rounded">Full CMS</span>
-                          </div>
-                          <p class="text-neutral-600 text-xs">Complete CMS integration, advanced features, comprehensive training</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Key Differences -->
-                  <div class="mt-6 bg-neutral-50 rounded-lg p-4">
-                    <h5 class="font-semibold text-neutral-800 mb-3 text-center">Development Time Comparison</h5>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                      <div class="flex items-center space-x-2">
-                        <i class="fas fa-lightning-bolt text-solar-blue"></i>
-                        <span class="text-neutral-600"><strong>Single Page Static:</strong> Just 1 week</span>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <i class="fas fa-cogs text-hudo-green"></i>
-                        <span class="text-neutral-600"><strong>Single Page Dynamic:</strong> 2 weeks (CMS setup)</span>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <i class="fas fa-rocket text-blue-500"></i>
-                        <span class="text-neutral-600"><strong>Multi-Page Static:</strong> 4-5 weeks</span>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <i class="fas fa-tools text-emerald-500"></i>
-                        <span class="text-neutral-600"><strong>Multi-Page Dynamic:</strong> 5-6 weeks</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="mermaid-container">
-                  <div class="mermaid-controls">
-                    <button class="mermaid-control-btn zoom-in" title="放大">
-                      <i class="fas fa-search-plus"></i>
-                    </button>
-                    <button class="mermaid-control-btn zoom-out" title="缩小">
-                      <i class="fas fa-search-minus"></i>
-                    </button>
-                    <button class="mermaid-control-btn reset-zoom" title="重置">
-                      <i class="fas fa-expand-arrows-alt"></i>
-                    </button>
-                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
-                      <i class="fas fa-expand"></i>
-                    </button>
-                  </div>
-                  <div class="mermaid">
-                    timeline
-                    title &#34;Website Development Timeline&#34;
-
-                    section &#34;Static Website&#34;
-                    &#34;Single Page (1 Week)&#34; : &#34;Quick Launch&#34;
-                    : &#34;Basic landing page&#34;
-                    : &#34;Contact form integration&#34;
-                    : &#34;Responsive design&#34;
-                    &#34;Multi-Page (4-5 Weeks)&#34; : &#34;Full Website&#34;
-                    : &#34;Complete site structure&#34;
-                    : &#34;Multiple pages&#34;
-                    : &#34;Advanced features&#34;
-                    : &#34;SEO optimization&#34;
-
-                    section &#34;Dynamic Website&#34;
-                    &#34;Single Page (2 Weeks)&#34; : &#34;CMS Setup&#34;
-                    : &#34;Basic CMS integration&#34;
-                    : &#34;Content management&#34;
-                    : &#34;Client training&#34;
-                    &#34;Multi-Page (5-6 Weeks)&#34; : &#34;Full CMS&#34;
-                    : &#34;Complete CMS integration&#34;
-                    : &#34;Advanced features&#34;
-                    : &#34;Comprehensive training&#34;
-                    : &#34;Content migration&#34;
-                  </div>
-                </div>
-              </div>
-
-              <!-- Investment Considerations -->
-              <div class="bg-gradient-to-r from-neutral-50 to-blue-50 rounded-xl p-8">
-                <h3 class="font-serif text-xl font-semibold text-neutral-900 mb-6">Investment Considerations</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-3">Short-term Factors</h4>
-                    <ul class="text-neutral-600 text-sm space-y-2">
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-clock text-blue-500 mt-0.5"></i>
-                        <span>Static option faster: 1 week (single page) vs 4-5 weeks (multi-page)</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-dollar-sign text-blue-500 mt-0.5"></i>
-                        <span>Lower initial investment for static option</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-bullseye text-blue-500 mt-0.5"></i>
-                        <span>Both options deliver core business objectives</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 class="font-semibold text-neutral-800 mb-3">Long-term Factors</h4>
-                    <ul class="text-neutral-600 text-sm space-y-2">
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-chart-line text-emerald-500 mt-0.5"></i>
-                        <span>CMS option enables content agility</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-expand text-emerald-500 mt-0.5"></i>
-                        <span>Scalability for future business growth</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <i class="fas fa-sync text-emerald-500 mt-0.5"></i>
-                        <span>Reduced maintenance overhead with CMS</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+        <div class="mt-10 glass p-6 reveal">
+          <h3 class="font-semibold mb-2">Contact</h3>
+          <div class="grid md:grid-cols-3 gap-3 text-sm">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-600 dark:text-blue-300"></i>
+              <a id="contactEmail" class="underline" href="#">contact@sheriax.com</a>
             </div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-600 dark:text-blue-300"></i> <a
+                id="contactPhone" class="underline" href="#">+91 7338923502</a></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600 dark:text-blue-300"></i> <a
+                id="contactWebsite" class="underline" href="#" target="_blank" rel="noopener">Website</a></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Maintenance &amp; Support -->
-      <section id="maintenance" class="section-anchor py-20 bg-white">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl font-semibold text-neutral-900 mb-6">Maintenance &amp; Support</h2>
-                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Comprehensive support plans ensuring your website remains secure, updated, and performing at its best.
-                </p>
-              </div>
+    <footer class="py-10 text-center text-xs text-black dark:text-neutral-400">
+      © <span id="year"></span> Sheriax — Proposal for Solar Technical Company (K.S.A.)
+    </footer>
+  </main>
 
-              <!-- Support Comparison -->
-              <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                <!-- Static Website Support -->
-                <div class="bg-neutral-50 rounded-xl p-8">
-                  <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-12 h-12 bg-solar-blue rounded-lg flex items-center justify-center">
-                      <i class="fas fa-rocket text-white"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold text-neutral-900">Static Website Support</h3>
-                  </div>
+  <script>
+    /* Centralized configuration */
+    const CONFIG = {
+      pricing: {
+        dynamic: [
+          { service: "UI/UX Design & Prototyping", description: "Complete visual system, wireframes, prototype (dark blue aesthetic).", amount: 25000 },
+          { service: "Frontend Website Development", description: "Next.js + Tailwind; video/carousel hero, dynamic templates, responsive.", amount: 75000 },
+          { service: "Sanity.io CMS Integration", description: "Backend setup, schemas (services, gallery, pages), training.", amount: 45000 },
+          { service: "Google Maps Integration", description: "Embedded map on Contact page.", amount: 7000 },
+          { service: "Resend Email Integration", description: "Secure API integration, templates, success/error handling.", amount: 10000 },
+          { service: "Project Management & QA", description: "Oversight, cross-browser testing, performance optimization.", amount: 18000 },
+        ],
+        static: [
+          { service: "UI/UX Design & Prototyping", description: "Identical to dynamic option.", amount: 25000 },
+          { service: "Static Website Development", description: "All pages/components; content hard-coded.", amount: 60000 },
+          { service: "Third-Party Integrations", description: "Google Maps + contact form via serverless function.", amount: 15000 },
+          { service: "Project Management & QA", description: "Oversight, communication, and testing.", amount: 15000 },
+        ]
+      },
+      contact: {
+        email: "contact@sheriax.com",
+        phone: "+91 7338923502",
+        website: "https://sheriax.com   "
+      },
+      meta: {
+        company: "Solar Technical Company (K.S.A.)",
+        proposalId: "WDP-2025-0911-ST-HA",
+        date: "2025/09/11",
+        validity: "30 days"
+      }
+    };
 
-                  <div class="space-y-6">
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">One-Time Cost Model</h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed mb-4">
-                        Pay once for development with no recurring CMS fees. Ideal for businesses with stable content requirements.
-                      </p>
-                      <div class="bg-emerald-100 p-3 rounded border-l-4 border-emerald-400">
-                        <p class="text-emerald-800 text-sm font-medium">No ongoing subscription costs</p>
-                      </div>
-                    </div>
+    /* Utilities */
+    const formatINR = (n) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Basic Support (30 Days)</h4>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Bug fixes and technical issues</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Performance optimization</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Minor content adjustments</span>
-                        </li>
-                      </ul>
-                    </div>
+    /* Populate dynamic content */
+    function populateMeta() {
+      const { company, proposalId, date, validity } = CONFIG.meta;
+      $("#companyName").textContent = company;
+      $("#companyNameMobile").textContent = company;
+      $("#proposalId").textContent = proposalId;
+      $("#proposalIdBadge").textContent = proposalId;
+      $("#proposalDate").textContent = date;
+      $("#proposalDateBadge").textContent = date;
+      $("#proposalValidity").textContent = validity;
+      $("#year").textContent = new Date().getFullYear();
 
-                    <div class="bg-blue-100 p-4 rounded-lg">
-                      <h5 class="font-medium text-blue-900 mb-2">Post-Support Options</h5>
-                      <ul class="text-blue-800 text-xs space-y-1">
-                        <li>• Hourly rate for updates</li>
-                        <li>• Annual maintenance packages</li>
-                        <li>• Low-cost hosting solutions</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+      $("#contactEmail").textContent = CONFIG.contact.email;
+      $("#contactEmail").href = `mailto:${CONFIG.contact.email}`;
+      $("#contactPhone").textContent = CONFIG.contact.phone;
+      $("#contactPhone").href = `tel:${CONFIG.contact.phone.replace(/\s+/g, '')}`;
+      $("#contactWebsite").textContent = CONFIG.contact.website.replace(/\s+/g, '').replace(/^https?:\/\//, '');
+      $("#contactWebsite").href = CONFIG.contact.website.trim();
+    }
 
-                <!-- CMS-Integrated Support -->
-                <div class="bg-neutral-50 rounded-xl p-8">
-                  <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-12 h-12 bg-hudo-green rounded-lg flex items-center justify-center">
-                      <i class="fas fa-cogs text-white"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold text-neutral-900">CMS-Integrated Support</h3>
-                  </div>
+    function buildPricingTables() {
+      const dynTbody = $("#dynamicTable");
+      const staTbody = $("#staticTable");
+      dynTbody.innerHTML = "";
+      staTbody.innerHTML = "";
 
-                  <div class="space-y-6">
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Ongoing Support &amp; Updates</h4>
-                      <p class="text-neutral-600 text-sm leading-relaxed mb-4">
-                        Continuous maintenance ensuring website and CMS remain secure, updated, and performing optimally.
-                      </p>
-                      <div class="bg-blue-100 p-3 rounded border-l-4 border-blue-400">
-                        <p class="text-blue-800 text-sm font-medium">Regular updates and security patches</p>
-                      </div>
-                    </div>
+      let dynSum = 0, staSum = 0;
 
-                    <div>
-                      <h4 class="font-semibold text-neutral-800 mb-3">Comprehensive Services</h4>
-                      <ul class="text-neutral-600 text-sm space-y-2">
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>CMS training and documentation</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Content management guidance</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Technical troubleshooting</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                          <i class="fas fa-check text-emerald-500 mt-0.5"></i>
-                          <span>Performance monitoring</span>
-                        </li>
-                      </ul>
-                    </div>
+      CONFIG.pricing.dynamic.forEach(item => {
+        dynSum += item.amount;
+        dynTbody.insertAdjacentHTML('beforeend', `
+            <tr class="border-b border-neutral-100 dark:border-white/5">
+              <td class="py-2 font-medium">${item.service}</td>
+              <td class="py-2 text-black dark:text-neutral-300">${item.description}</td>
+              <td class="py-2 text-right">${formatINR(item.amount)}</td>
+            </tr>
+          `);
+      });
+      CONFIG.pricing.static.forEach(item => {
+        staSum += item.amount;
+        staTbody.insertAdjacentHTML('beforeend', `
+            <tr class="border-b border-neutral-100 dark:border-white/5">
+              <td class="py-2 font-medium">${item.service}</td>
+              <td class="py-2 text-black dark:text-neutral-300">${item.description}</td>
+              <td class="py-2 text-right">${formatINR(item.amount)}</td>
+            </tr>
+          `);
+      });
 
-                    <div class="bg-emerald-100 p-4 rounded-lg">
-                      <h5 class="font-medium text-emerald-900 mb-2">Enhanced Support Plans</h5>
-                      <ul class="text-emerald-800 text-xs space-y-1">
-                        <li>• Priority support response</li>
-                        <li>• Dedicated account manager</li>
-                        <li>• Proactive maintenance</li>
-                        <li>• Custom development hours</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      $("#dynamicTotalCell").textContent = formatINR(dynSum);
+      $("#staticTotalCell").textContent = formatINR(staSum);
+      $("#dynamicTotal").textContent = formatINR(dynSum);
+      $("#staticTotal").textContent = formatINR(staSum);
+      $("#dynamicTotalHero").textContent = formatINR(dynSum);
+      $("#staticTotalHero").textContent = formatINR(staSum);
+    }
 
-              <!-- Service Level Agreement -->
-              <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="font-serif text-xl font-semibold text-neutral-900 mb-6">Service Level Commitments</h3>
+    /* Theme & language toggles */
+    function setupThemeToggle() {
+      const apply = (mode) => { document.documentElement.setAttribute("data-theme", mode); localStorage.setItem("theme", mode); };
+      const saved = localStorage.getItem("theme");
+      apply(saved || "light");
+      const toggles = ["#themeToggle", "#themeToggleMobile"].map(id => $(id)).filter(Boolean);
+      toggles.forEach(btn => btn.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        apply(next);
+      }));
+    }
 
-                <div class="grid md:grid-cols-3 gap-8">
-                  <div class="text-center">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-clock text-red-600 text-xl"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Response Time</h4>
-                    <div class="text-2xl font-bold text-red-600 mb-1">4 hours</div>
-                    <p class="text-neutral-600 text-sm">Critical issues response</p>
-                  </div>
+    const TEXT = {
+      en: {
+        "nav-overview": "Overview",
+        "nav-intro": "Introduction",
+        "nav-scope": "Scope & Structure",
+        "nav-tech": "Technology Stack",
+        "nav-pricing": "Pricing & Investment",
+        "nav-timeline": "Implementation Timeline",
+        "nav-value": "Value-Added Inclusions",
+        "nav-appendix": "Appendix: Page Structure",
+        "nav-contact": "Next Steps & Contact"
+      },
+      ar: {
+        "nav-overview": "نظرة عامة",
+        "nav-intro": "مقدمة",
+        "nav-scope": "النطاق والبنية",
+        "nav-tech": "حزمة التقنيات",
+        "nav-pricing": "التسعير والاستثمار",
+        "nav-timeline": "الجدول الزمني للتنفيذ",
+        "nav-value": "القيمة المضافة",
+        "nav-appendix": "الملحق: بنية الصفحات",
+        "nav-contact": "الخطوات التالية والتواصل"
+      }
+    };
 
-                  <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Security Updates</h4>
-                    <div class="text-2xl font-bold text-blue-600 mb-1">24 hours</div>
-                    <p class="text-neutral-600 text-sm">Critical patches applied</p>
-                  </div>
-
-                  <div class="text-center">
-                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-chart-line text-emerald-600 text-xl"></i>
-                    </div>
-                    <h4 class="font-semibold text-neutral-900 mb-2">Uptime Guarantee</h4>
-                    <div class="text-2xl font-bold text-emerald-600 mb-1">99.9%</div>
-                    <p class="text-neutral-600 text-sm">Website availability</p>
-                  </div>
-                </div>
-
-                <div class="mt-8 border-t border-neutral-200 pt-6">
-                  <h4 class="font-semibold text-neutral-800 mb-4">Additional Services Available</h4>
-                  <div class="grid md:grid-cols-2 gap-4 text-sm text-neutral-600">
-                    <ul class="space-y-2">
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-solar-blue"></i>
-                        <span>Content strategy consultation</span>
-                      </li>
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-solar-blue"></i>
-                        <span>SEO optimization services</span>
-                      </li>
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-solar-blue"></i>
-                        <span>Performance monitoring</span>
-                      </li>
-                    </ul>
-                    <ul class="space-y-2">
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-hudo-green"></i>
-                        <span>Analytics setup and reporting</span>
-                      </li>
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-hudo-green"></i>
-                        <span>Content creation services</span>
-                      </li>
-                      <li class="flex items-center space-x-2">
-                        <i class="fas fa-plus text-hudo-green"></i>
-                        <span>Feature enhancements</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Closing &amp; Next Steps -->
-      <section id="closing" class="section-anchor py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-emerald-900 text-white">
-        <div class="container mx-auto px-8">
-          <div class="max-w-6xl mx-auto">
-            <div class="page-transition">
-              <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl font-semibold mb-6">Closing &amp; Next Steps</h2>
-                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-                  Ready to establish your digital presence and drive business growth in the competitive Saudi Arabian and UAE markets.
-                </p>
-              </div>
-
-              <!-- Benefits Summary -->
-              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center border border-white/20">
-                  <div class="w-12 h-12 bg-solar-blue rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-rocket text-white"></i>
-                  </div>
-                  <h3 class="font-semibold mb-2">Performance</h3>
-                  <p class="text-blue-100 text-sm">Lightning-fast, secure, and reliable</p>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center border border-white/20">
-                  <div class="w-12 h-12 bg-hudo-green rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-shield-alt text-white"></i>
-                  </div>
-                  <h3 class="font-semibold mb-2">Security</h3>
-                  <p class="text-blue-100 text-sm">Enterprise-grade protection</p>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center border border-white/20">
-                  <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-chart-line text-white"></i>
-                  </div>
-                  <h3 class="font-semibold mb-2">Growth</h3>
-                  <p class="text-blue-100 text-sm">Drive business expansion</p>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center border border-white/20">
-                  <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-handshake text-white"></i>
-                  </div>
-                  <h3 class="font-semibold mb-2">Trust</h3>
-                  <p class="text-blue-100 text-sm">Build lasting client relationships</p>
-                </div>
-              </div>
-
-              <!-- Call to Action -->
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 mb-12">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <h3 class="font-serif text-2xl font-semibold mb-4">Ready to Start Your Project?</h3>
-                    <p class="text-blue-100 leading-relaxed mb-6">
-                      We&#39;re confident in delivering a website that exceeds your expectations and drives business growth. Let&#39;s discuss which option best fits your strategic objectives.
-                    </p>
-
-                    <div class="space-y-3">
-                      <div class="flex items-center space-x-3">
-                        <i class="fas fa-check-circle text-emerald-400"></i>
-                        <span class="text-sm">Professional, industry-specific design</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <i class="fas fa-check-circle text-emerald-400"></i>
-                        <span class="text-sm">Mobile-first responsive development</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <i class="fas fa-check-circle text-emerald-400"></i>
-                        <span class="text-sm">SEO optimization included</span>
-                      </div>
-                      <div class="flex items-center space-x-3">
-                        <i class="fas fa-check-circle text-emerald-400"></i>
-                        <span class="text-sm">Comprehensive support &amp; maintenance</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/30">
-                    <h4 class="font-semibold text-white mb-4">Next Steps</h4>
-                    <div class="space-y-4">
-                      <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 bg-solar-blue rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
-                        <div>
-                          <div class="font-medium text-white">Review Proposal</div>
-                          <div class="text-blue-100 text-sm">Evaluate both options thoroughly</div>
-                        </div>
-                      </div>
-
-                      <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 bg-hudo-green rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
-                        <div>
-                          <div class="font-medium text-white">Select Option</div>
-                          <div class="text-blue-100 text-sm">Choose static or CMS-integrated</div>
-                        </div>
-                      </div>
-
-                      <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
-                        <div>
-                          <div class="font-medium text-white">Project Kickoff</div>
-                          <div class="text-blue-100 text-sm">Begin development process</div>
-                        </div>
-                      </div>
-
-                      <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
-                        <div>
-                          <div class="font-medium text-white">Launch &amp; Support</div>
-                          <div class="text-blue-100 text-sm">Go live with ongoing assistance</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Contact Information -->
-              <div class="text-center">
-                <h3 class="font-serif text-xl font-semibold mb-6">Get In Touch</h3>
-                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                    <i class="fas fa-envelope text-emerald-400 text-2xl mb-3"></i>
-                    <h4 class="font-semibold mb-2">Email</h4>
-                    <a href="mailto:contact@sheriax.com" class="text-blue-100 hover:text-white transition-colors" id="contact-email">
-                      contact@sheriax.com
-                    </a>
-                  </div>
-
-                  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                    <i class="fas fa-phone text-emerald-400 text-2xl mb-3"></i>
-                    <h4 class="font-semibold mb-2">Phone</h4>
-                    <a href="tel:+917338923502" class="text-blue-100 hover:text-white transition-colors" id="contact-phone">
-                      +91 7338923502
-                    </a>
-                  </div>
-
-                  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                    <i class="fas fa-globe text-emerald-400 text-2xl mb-3"></i>
-                    <h4 class="font-semibold mb-2">Website</h4>
-                    <a href="https://sheriax.com" class="text-blue-100 hover:text-white transition-colors" id="contact-website">
-                      https://sheriax.com
-                    </a>
-                  </div>
-                </div>
-
-                <div class="mt-8 text-center">
-                  <p class="text-blue-100 text-sm">
-                    Proposal valid for 30 days from September 9, 2025
-                  </p>
-                  <p class="text-blue-100 text-xs mt-2">
-                    Proposal ID: WDP-2025-0909-ST-HA
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- JavaScript -->
-    <script>
-        // Initialize Mermaid
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                primaryColor: '#fafafa',
-                primaryTextColor: '#262626',
-                primaryBorderColor: '#525252',
-                lineColor: '#525252',
-                secondaryColor: '#f5f5f5',
-                tertiaryColor: '#ffffff',
-                background: '#ffffff',
-                mainBkg: '#fafafa',
-                secondBkg: '#f5f5f5',
-                tertiaryBkg: '#ffffff',
-                nodeBorder: '#525252',
-                clusterBkg: '#f5f5f5',
-                clusterBorder: '#d4d4d4',
-                defaultLinkColor: '#525252',
-                titleColor: '#262626',
-                edgeLabelBackground: '#ffffff',
-                nodeTextColor: '#262626'
-            },
-            flowchart: {
-                useMaxWidth: false,
-                htmlLabels: true,
-                curve: 'basis',
-                padding: 20
-            },
-            timeline: {
-                useMaxWidth: false,
-                padding: 20
-            },
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '14px'
+    function setupLanguageToggle() {
+      const apply = (lang) => {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+        localStorage.setItem("lang", lang);
+        // Update nav labels (example)
+        const labels = ["overview", "intro", "scope", "tech", "pricing", "timeline", "value", "appendix", "contact"];
+        labels.forEach(key => {
+          const sel = `a[href="#${key === "overview" ? "hero" : key}"]`;
+          $$(sel, $("#tocNav")).forEach(a => a.textContent = TEXT[lang][`nav-${key === "hero" ? "overview" : key}`]);
         });
+      };
+      const saved = localStorage.getItem("lang") || "en";
+      apply(saved);
 
-        // Initialize Mermaid Controls for zoom and pan
-        function initializeMermaidControls() {
-            const containers = document.querySelectorAll('.mermaid-container');
+      const toggles = ["#langToggle", "#langToggleMobile"].map(id => $(id)).filter(Boolean);
+      toggles.forEach(btn => btn.addEventListener("click", () => {
+        const next = (document.documentElement.lang === "en") ? "ar" : "en";
+        apply(next);
+      }));
+    }
 
-            containers.forEach(container => {
-            const mermaidElement = container.querySelector('.mermaid');
-            let scale = 1;
-            let isDragging = false;
-            let startX, startY, translateX = 0, translateY = 0;
-
-            // 触摸相关状态
-            let isTouch = false;
-            let touchStartTime = 0;
-            let initialDistance = 0;
-            let initialScale = 1;
-            let isPinching = false;
-
-            // Zoom controls
-            const zoomInBtn = container.querySelector('.zoom-in');
-            const zoomOutBtn = container.querySelector('.zoom-out');
-            const resetBtn = container.querySelector('.reset-zoom');
-            const fullscreenBtn = container.querySelector('.fullscreen');
-
-            function updateTransform() {
-                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-
-                if (scale > 1) {
-                container.classList.add('zoomed');
-                } else {
-                container.classList.remove('zoomed');
-                }
-
-                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
-            }
-
-            if (zoomInBtn) {
-                zoomInBtn.addEventListener('click', () => {
-                scale = Math.min(scale * 1.25, 4);
-                updateTransform();
-                });
-            }
-
-            if (zoomOutBtn) {
-                zoomOutBtn.addEventListener('click', () => {
-                scale = Math.max(scale / 1.25, 0.3);
-                if (scale <= 1) {
-                    translateX = 0;
-                    translateY = 0;
-                }
-                updateTransform();
-                });
-            }
-
-            if (resetBtn) {
-                resetBtn.addEventListener('click', () => {
-                scale = 1;
-                translateX = 0;
-                translateY = 0;
-                updateTransform();
-                });
-            }
-
-            if (fullscreenBtn) {
-                fullscreenBtn.addEventListener('click', () => {
-                    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                        // Enter fullscreen
-                        if (container.requestFullscreen) {
-                            container.requestFullscreen();
-                        } else if (container.webkitRequestFullscreen) {
-                            container.webkitRequestFullscreen();
-                        } else if (container.msRequestFullscreen) {
-                            container.msRequestFullscreen();
-                        }
-                    } else {
-                        // Exit fullscreen
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        } else if (document.webkitExitFullscreen) {
-                            document.webkitExitFullscreen();
-                        } else if (document.msExitFullscreen) {
-                            document.msExitFullscreen();
-                        }
-                    }
-                });
-                
-                // Update button icon based on fullscreen state
-                function updateFullscreenButton() {
-                    const icon = fullscreenBtn.querySelector('i');
-                    if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-                        icon.className = 'fas fa-compress';
-                        fullscreenBtn.title = '退出全屏';
-                    } else {
-                        icon.className = 'fas fa-expand';
-                        fullscreenBtn.title = '全屏查看';
-                    }
-                }
-                
-                // Listen for fullscreen changes
-                document.addEventListener('fullscreenchange', updateFullscreenButton);
-                document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-                document.addEventListener('msfullscreenchange', updateFullscreenButton);
-            }
-
-            // Mouse Events
-            mermaidElement.addEventListener('mousedown', (e) => {
-                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
-
-                isDragging = true;
-                startX = e.clientX - translateX;
-                startY = e.clientY - translateY;
-                mermaidElement.style.cursor = 'grabbing';
-                updateTransform();
-                e.preventDefault();
-            });
-
-            document.addEventListener('mousemove', (e) => {
-                if (isDragging && !isTouch) {
-                translateX = e.clientX - startX;
-                translateY = e.clientY - startY;
-                updateTransform();
-                }
-            });
-
-            document.addEventListener('mouseup', () => {
-                if (isDragging && !isTouch) {
-                isDragging = false;
-                mermaidElement.style.cursor = 'grab';
-                updateTransform();
-                }
-            });
-
-            document.addEventListener('mouseleave', () => {
-                if (isDragging && !isTouch) {
-                isDragging = false;
-                mermaidElement.style.cursor = 'grab';
-                updateTransform();
-                }
-            });
-
-            // 获取两点之间的距离
-            function getTouchDistance(touch1, touch2) {
-                return Math.hypot(
-                touch2.clientX - touch1.clientX,
-                touch2.clientY - touch1.clientY
-                );
-            }
-
-            // Touch Events - 触摸事件处理
-            mermaidElement.addEventListener('touchstart', (e) => {
-                isTouch = true;
-                touchStartTime = Date.now();
-
-                if (e.touches.length === 1) {
-                // 单指拖动
-                isPinching = false;
-                isDragging = true;
-
-                const touch = e.touches[0];
-                startX = touch.clientX - translateX;
-                startY = touch.clientY - translateY;
-
-                } else if (e.touches.length === 2) {
-                // 双指缩放
-                isPinching = true;
-                isDragging = false;
-
-                const touch1 = e.touches[0];
-                const touch2 = e.touches[1];
-                initialDistance = getTouchDistance(touch1, touch2);
-                initialScale = scale;
-                }
-
-                e.preventDefault();
-            }, { passive: false });
-
-            mermaidElement.addEventListener('touchmove', (e) => {
-                if (e.touches.length === 1 && isDragging && !isPinching) {
-                // 单指拖动
-                const touch = e.touches[0];
-                translateX = touch.clientX - startX;
-                translateY = touch.clientY - startY;
-                updateTransform();
-
-                } else if (e.touches.length === 2 && isPinching) {
-                // 双指缩放
-                const touch1 = e.touches[0];
-                const touch2 = e.touches[1];
-                const currentDistance = getTouchDistance(touch1, touch2);
-
-                if (initialDistance > 0) {
-                    const newScale = Math.min(Math.max(
-                    initialScale * (currentDistance / initialDistance),
-                    0.3
-                    ), 4);
-                    scale = newScale;
-                    updateTransform();
-                }
-                }
-
-                e.preventDefault();
-            }, { passive: false });
-
-            mermaidElement.addEventListener('touchend', (e) => {
-                // 重置状态
-                if (e.touches.length === 0) {
-                isDragging = false;
-                isPinching = false;
-                initialDistance = 0;
-
-                // 延迟重置isTouch，避免鼠标事件立即触发
-                setTimeout(() => {
-                    isTouch = false;
-                }, 100);
-                } else if (e.touches.length === 1 && isPinching) {
-                // 从双指变为单指，切换为拖动模式
-                isPinching = false;
-                isDragging = true;
-
-                const touch = e.touches[0];
-                startX = touch.clientX - translateX;
-                startY = touch.clientY - translateY;
-                }
-
-                updateTransform();
-            });
-
-            mermaidElement.addEventListener('touchcancel', (e) => {
-                isDragging = false;
-                isPinching = false;
-                initialDistance = 0;
-
-                setTimeout(() => {
-                isTouch = false;
-                }, 100);
-
-                updateTransform();
-            });
-
-            // Enhanced wheel zoom with better center point handling
-            container.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                const rect = container.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const delta = e.deltaY > 0 ? 0.9 : 1.1;
-                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
-
-                // Adjust translation to zoom towards center
-                if (newScale !== scale) {
-                const scaleDiff = newScale / scale;
-                translateX = translateX * scaleDiff;
-                translateY = translateY * scaleDiff;
-                scale = newScale;
-
-                if (scale <= 1) {
-                    translateX = 0;
-                    translateY = 0;
-                }
-
-                updateTransform();
-                }
-            });
-
-            // Initialize display
-            updateTransform();
-            });
-        }
-
-        // Page transition animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all page-transition elements
-        document.querySelectorAll('.page-transition').forEach(el => {
-            observer.observe(el);
+    /* TOC active highlight */
+    function setupTOCHighlight() {
+      const links = $$(".toc-link");
+      const map = new Map();
+      links.forEach(a => {
+        const id = a.getAttribute("href").replace("#", "");
+        const section = document.getElementById(id);
+        if (section) map.set(section, a);
+      });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const link = map.get(entry.target);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+          }
         });
+      }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+      map.forEach((_, section) => observer.observe(section));
+    }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    /* Reveal on scroll */
+    function setupReveal() {
+      const els = $$(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
         });
+      }, { threshold: 0.1 });
+      els.forEach(el => io.observe(el));
+    }
 
-        // Highlight active section in TOC
-        const sections = document.querySelectorAll('.section-anchor');
-        const tocLinks = document.querySelectorAll('.toc-fixed a');
+    /* Mermaid init and pan/zoom handlers */
+    function initMermaid() {
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
 
-        const highlightActiveSection = () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
+      // After render, attach controls
+      const boxes = [$("#workflowBox"), $("#timelineBox")].filter(Boolean);
+      boxes.forEach(setupPanZoomBox);
+    }
 
-            tocLinks.forEach(link => {
-                link.classList.remove('text-solar-blue', 'font-medium');
-                link.classList.add('text-neutral-600');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.remove('text-neutral-600');
-                    link.classList.add('text-solar-blue', 'font-medium');
-                }
-            });
-        };
+    function setupPanZoomBox(box) {
+      let scale = 1, tx = 0, ty = 0;
+      let isPanning = false, startX = 0, startY = 0;
 
-        window.addEventListener('scroll', highlightActiveSection);
-        
-        // Initialize mermaid on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeMermaidControls();
-        });
+      const stage = $(".mermaid-stage", box);
 
-        // ============================================================================
-        // PRICING AND CONTACT CONFIGURATION
-        // ============================================================================
-        // Update these variables to change pricing and contact information throughout the site
-        
-        const PRICING = {
-            static: {
-                single: { min: 400, max: 800 },
-                multi: { min: 1200, max: 1600, pages: "4-5" }
-            },
-            dynamic: {
-                single: { min: 1200, max: 1600 },
-                multi: { min: 1600, max: 2000 }
-            }
-        };
+      function applyTransform() {
+        const svg = $("svg", stage);
+        if (!svg) return;
+        svg.style.transformOrigin = "0 0";
+        svg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      }
 
-        const CONTACT = {
-            email: "contact@sheriax.com",
-            phone: "+91 7338923502",
-            website: "https://sheriax.com"
-        };
+      function reset() {
+        scale = 1; tx = 0; ty = 0; applyTransform();
+      }
 
-        // Auto-populate pricing and contact elements if they have the correct IDs
-        document.addEventListener('DOMContentLoaded', function() {
-            const fmt = (min, max) => `$${min.toLocaleString()} - $${max.toLocaleString()}`;
-            const byId = id => document.getElementById(id);
-            
-            // Update pricing elements
-            if (byId("static-single")) byId("static-single").textContent = fmt(PRICING.static.single.min, PRICING.static.single.max);
-            if (byId("static-multi")) byId("static-multi").textContent = `${fmt(PRICING.static.multi.min, PRICING.static.multi.max)} (${PRICING.static.multi.pages} pages)`;
-            if (byId("dynamic-single")) byId("dynamic-single").textContent = fmt(PRICING.dynamic.single.min, PRICING.dynamic.single.max);
-            if (byId("dynamic-multi")) byId("dynamic-multi").textContent = fmt(PRICING.dynamic.multi.min, PRICING.dynamic.multi.max);
+      // toolbar
+      $("[data-zoom-in]", box).addEventListener("click", () => { scale = Math.min(4, scale * 1.2); applyTransform(); });
+      $("[data-zoom-out]", box).addEventListener("click", () => { scale = Math.max(0.25, scale / 1.2); applyTransform(); });
+      $("[data-reset]", box).addEventListener("click", reset);
+      $("[data-fullscreen]", box).addEventListener("click", () => {
+        if (!document.fullscreenElement) { box.requestFullscreen?.(); } else { document.exitFullscreen?.(); }
+      });
 
-            // Update contact elements
-            if (byId("contact-email")) {
-                byId("contact-email").textContent = CONTACT.email;
-                byId("contact-email").href = `mailto:${CONTACT.email}`;
-            }
-            if (byId("contact-phone")) {
-                byId("contact-phone").textContent = CONTACT.phone;
-                byId("contact-phone").href = `tel:${CONTACT.phone.replace(/\s/g, '')}`;
-            }
-            if (byId("contact-website")) {
-                byId("contact-website").textContent = CONTACT.website;
-                byId("contact-website").href = CONTACT.website;
-            }
-        });
-    </script>
-  
+      // mouse
+      stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const delta = Math.sign(e.deltaY);
+        const rect = stage.getBoundingClientRect();
+        const cx = e.clientX - rect.left;
+        const cy = e.clientY - rect.top;
 
-</body></html>
+        const prevScale = scale;
+        scale = delta > 0 ? Math.max(0.25, scale / 1.1) : Math.min(4, scale * 1.1);
+
+        // zoom towards cursor
+        tx = cx - (cx - tx) * (scale / prevScale);
+        ty = cy - (cy - ty) * (scale / prevScale);
+        applyTransform();
+      }, { passive: false });
+
+      stage.addEventListener("pointerdown", (e) => {
+        isPanning = true; startX = e.clientX - tx; startY = e.clientY - ty;
+        stage.setPointerCapture(e.pointerId);
+      });
+      stage.addEventListener("pointermove", (e) => {
+        if (!isPanning) return;
+        tx = e.clientX - startX; ty = e.clientY - startY; applyTransform();
+      });
+      stage.addEventListener("pointerup", (e) => { isPanning = false; stage.releasePointerCapture(e.pointerId); });
+      stage.addEventListener("pointercancel", () => { isPanning = false; });
+
+      // initial transform application after mermaid has rendered
+      const tryApply = () => { if ($("svg", stage)) applyTransform(); else requestAnimationFrame(tryApply); };
+      tryApply();
+    }
+
+    /* Download as PDF (print) */
+    function setupDownload() {
+      $("#btnDownload")?.addEventListener("click", () => {
+        window.print();
+      });
+    }
+
+    /* Approvals (placeholder actions) */
+    function setupApprovals() {
+      $("#btnApproveDynamic")?.addEventListener("click", () => {
+        alert("Thank you! We’ll proceed with the Dynamic (CMS) option and schedule a kickoff.");
+      });
+      $("#btnApproveStatic")?.addEventListener("click", () => {
+        alert("Thank you! We’ll proceed with the Static option and schedule a kickoff.");
+      });
+    }
+
+    /* Init */
+    document.addEventListener("DOMContentLoaded", () => {
+      populateMeta();
+      buildPricingTables();
+      setupThemeToggle();
+      setupLanguageToggle();
+      setupTOCHighlight();
+      setupReveal();
+      initMermaid();
+      setupDownload();
+      setupApprovals();
+    });
+  </script>
+</body>
+
+</html>
