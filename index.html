@@ -7,7 +7,7 @@
   <title>Solar Technical Company (K.S.A.) — Website Development Quotation (WDP-2025-0911-ST-HA)</title>
   <meta name="description"
     content="Professional website development quotation for Solar Technical Company (K.S.A.). Dynamic (Sanity CMS) and Static options with detailed scope, pricing, and implementation plan." />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
 
   <!-- Required CDN Dependencies (exact links as requested) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -51,18 +51,35 @@
 
     body {
       background: white;
-      color: var(--neutral-900);
-    }
-
-    [data-theme="dark"] body,
-    [data-theme="dark"] {
-      color-scheme: dark;
-      background: #0b1220;
-      color: #e6e6e6;
+      color: var(--neutral-900) !important;
     }
 
     [dir="rtl"] * {
       letter-spacing: 0.1px;
+    }
+
+    /* RTL-aware text alignment for common elements */
+    [dir="rtl"] h1,
+    [dir="rtl"] h2,
+    [dir="rtl"] h3,
+    [dir="rtl"] h4,
+    [dir="rtl"] h5,
+    [dir="rtl"] h6,
+    [dir="rtl"] p,
+    [dir="rtl"] li,
+    [dir="rtl"] .toc-link,
+    [dir="rtl"] .chip {
+      text-align: right;
+    }
+
+    /* Tables: prefer right alignment in RTL for headers */
+    [dir="rtl"] th {
+      text-align: right;
+    }
+
+    /* Preserve number alignment */
+    [dir="rtl"] td.text-right {
+      text-align: right;
     }
 
     /* Fixed sidebar / TOC */
@@ -75,11 +92,6 @@
       background: rgba(255, 255, 255, 0.7);
       border-inline-end: 1px solid var(--neutral-200);
       backdrop-filter: blur(10px) saturate(120%);
-    }
-
-    [data-theme="dark"] .sidebar {
-      background: rgba(10, 12, 20, 0.5);
-      border-color: rgba(255, 255, 255, 0.08);
     }
 
     .content-offset {
@@ -104,18 +116,10 @@
       text-decoration: none;
     }
 
-    [data-theme="dark"] .toc-link {
-      color: #d6d6d6;
-    }
-
     .toc-link.active {
       background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
       color: var(--primary-blue);
       font-weight: 600;
-    }
-
-    [data-theme="dark"] .toc-link.active {
-      color: #9ecbff;
     }
 
     /* Anchors */
@@ -130,12 +134,6 @@
         linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.92));
     }
 
-    [data-theme="dark"] .hero-gradient {
-      background: radial-gradient(1000px 600px at -10% -30%, rgba(59, 130, 246, 0.18), rgba(16, 185, 129, 0.0)),
-        radial-gradient(800px 500px at 110% -20%, rgba(16, 185, 129, 0.22), rgba(59, 130, 246, 0.0)),
-        linear-gradient(180deg, rgba(6, 10, 20, 0.95), rgba(6, 10, 20, 0.85));
-    }
-
     /* Glass card */
     .glass {
       background: rgba(255, 255, 255, 0.6);
@@ -143,12 +141,6 @@
       border-radius: 1rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       backdrop-filter: blur(8px) saturate(130%);
-    }
-
-    [data-theme="dark"] .glass {
-      background: rgba(16, 20, 32, 0.6);
-      border-color: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     /* Reveal on view (no text-jitter animations) */
@@ -170,11 +162,6 @@
       border-radius: 0.75rem;
       border: 1px solid var(--neutral-200);
       background: var(--neutral-50);
-    }
-
-    [data-theme="dark"] .mermaid-container {
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
     }
 
     .mermaid-toolbar {
@@ -199,12 +186,6 @@
       background: rgba(255, 255, 255, 0.95);
     }
 
-    [data-theme="dark"] .toolbar-btn {
-      background: rgba(16, 20, 32, 0.6);
-      color: #eaeaea;
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
     .mermaid-stage {
       width: 100%;
       height: 100%;
@@ -222,11 +203,6 @@
       font-weight: 600;
       border: 1px solid rgba(0, 0, 0, 0.06);
       background: rgba(255, 255, 255, 0.8);
-    }
-
-    [data-theme="dark"] .chip {
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(16, 20, 32, 0.6);
     }
 
     /* Buttons */
@@ -251,11 +227,6 @@
       font-weight: 600;
     }
 
-    [data-theme="dark"] .btn-secondary {
-      color: #9ecbff;
-      border-color: #3b82f6;
-    }
-
     /* Accents */
     .badge {
       display: inline-flex;
@@ -271,15 +242,6 @@
 
     p {
       color: #0b1220 !important;
-    }
-
-    [data-theme="dark"] p {
-      color: #eaeaea !important;
-    }
-
-    [data-theme="dark"] .badge {
-      background: rgba(59, 130, 246, 0.2);
-      color: #c7e2ff;
     }
 
     /* Accessibility helpers */
@@ -305,18 +267,18 @@
   <!-- Fixed Sidebar (Desktop) -->
   <aside class="sidebar" aria-label="Table of contents">
     <div class="h-full flex flex-col">
-      <div class="p-5 border-b border-neutral-200/70 dark:border-white/10">
+      <div class="p-5 border-b border-neutral-200/70">
         <div class="flex items-center gap-3">
           <div
             class="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-600 to-emerald-500 flex items-center justify-center text-white">
             <i class="fa-solid fa-solar-panel text-lg"></i>
           </div>
           <div>
-            <div class="text-sm text-black dark:text-neutral-300">Proposal</div>
+            <div class="text-sm text-black">Proposal</div>
             <div id="companyName" class="font-semibold">Solar Technical Company</div>
           </div>
         </div>
-        <div class="mt-3 text-xs text-black dark:text-neutral-400">
+        <div class="mt-3 text-xs text-black">
           <div><span class="font-semibold">ID:</span> <span id="proposalId">WDP-2025-0911-ST-HA</span></div>
           <div><span class="font-semibold">Date:</span> <span id="proposalDate">2025/09/11</span></div>
           <div><span class="font-semibold">Valid:</span> <span id="proposalValidity">30 days</span></div>
@@ -336,7 +298,7 @@
       </nav>
 
       <!-- Quick reference -->
-      <div class="p-4 border-t border-neutral-200/70 dark:border-white/10 text-sm">
+      <div class="p-4 border-t border-neutral-200/70 text-sm">
         <div class="font-semibold mb-2">Quick Reference</div>
         <ul class="space-y-2">
           <li class="flex items-center gap-2"><span class="chip"><i class="fa-solid fa-coins text-blue-600"></i> Dynamic
@@ -347,8 +309,6 @@
               Timeline</span> <span class="ml-auto">4–6 weeks</span></li>
         </ul>
         <div class="mt-4 space-x-2">
-          <button id="themeToggle" class="btn-secondary text-sm"><i
-              class="fa-solid fa-circle-half-stroke mr-2"></i>Theme</button>
           <button id="langToggle" class="btn-secondary text-sm"><i class="fa-solid fa-language mr-2"></i>EN/AR</button>
         </div>
       </div>
@@ -368,13 +328,11 @@
               <i class="fa-solid fa-solar-panel text-lg"></i>
             </div>
             <div>
-              <div class="text-xs text-black dark:text-neutral-300">Proposal</div>
+              <div class="text-xs text-black">Proposal</div>
               <div id="companyNameMobile" class="font-semibold">Solar Technical Company</div>
             </div>
           </div>
           <div class="flex gap-2">
-            <button id="themeToggleMobile" class="btn-secondary text-xs"><i
-                class="fa-solid fa-circle-half-stroke"></i></button>
             <button id="langToggleMobile" class="btn-secondary text-xs"><i class="fa-solid fa-language"></i></button>
           </div>
         </div>
@@ -395,7 +353,7 @@
             <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
               Website Development Quotation
             </h1>
-            <p class="mt-4 text-black dark:text-neutral-300 max-w-3xl">
+            <p class="mt-4 text-black max-w-3xl">
               A professional, dynamic, and scalable website to establish a strong digital presence, showcase technical
               expertise, and drive client engagement. Includes a Sanity CMS option for easy content management and an
               alternative Static site option for comparison.
@@ -405,16 +363,15 @@
             <div class="mt-6 grid sm:grid-cols-2 gap-4">
               <div class="glass p-4">
                 <div class="flex items-center gap-3">
-                  <div
-                    class="h-10 w-10 rounded-md bg-blue-600/10 text-blue-700 dark:text-blue-300 flex items-center justify-center">
+                  <div class="h-10 w-10 rounded-md bg-blue-600/10 text-blue-700 flex items-center justify-center">
                     <i class="fa-solid fa-diagram-project"></i>
                   </div>
                   <div>
                     <div class="font-semibold">Dynamic (CMS) Website</div>
-                    <div class="text-sm text-black dark:text-neutral-400">Sanity.io + Next.js + Tailwind</div>
+                    <div class="text-sm text-black">Sanity.io + Next.js + Tailwind</div>
                   </div>
                 </div>
-                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
                   <li>CMS-managed content and dynamic templates</li>
                   <li>Video + carousel hero, responsive UI</li>
                   <li>Resend-powered contact form</li>
@@ -423,16 +380,15 @@
 
               <div class="glass p-4">
                 <div class="flex items-center gap-3">
-                  <div
-                    class="h-10 w-10 rounded-md bg-emerald-600/10 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
+                  <div class="h-10 w-10 rounded-md bg-emerald-600/10 text-emerald-700 flex items-center justify-center">
                     <i class="fa-solid fa-code"></i>
                   </div>
                   <div>
                     <div class="font-semibold">Static Website</div>
-                    <div class="text-sm text-black dark:text-neutral-400">HTML/CSS/JS + SSG</div>
+                    <div class="text-sm text-black">HTML/CSS/JS + SSG</div>
                   </div>
                 </div>
-                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+                <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
                   <li>Lower initial cost</li>
                   <li>Developer-assisted content updates</li>
                   <li>Serverless function for contact form</li>
@@ -449,13 +405,12 @@
           <!-- Right (1fr) Executive Summary -->
           <aside class="glass p-6 reveal">
             <div class="flex items-center gap-3">
-              <div
-                class="h-10 w-10 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-300 flex items-center justify-center">
+              <div class="h-10 w-10 rounded-md bg-amber-500/15 text-amber-600 flex items-center justify-center">
                 <i class="fa-solid fa-clipboard-list"></i>
               </div>
               <h2 class="font-semibold">Executive Summary</h2>
             </div>
-            <p class="mt-3 text-sm text-black dark:text-neutral-300">
+            <p class="mt-3 text-sm text-black">
               We propose a dynamic, CMS-enabled website with a professional design system, performant frontend, and
               robust content workflows. An alternative static implementation is also provided for comparison.
             </p>
@@ -466,20 +421,20 @@
                 services, gallery, and content pages</li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Resend-secured
                 contact form and Google Maps embed</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Dual-theme,
-                bilingual-ready, and on-site SEO</li>
+              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                Bilingual-ready and on-site SEO</li>
             </ul>
             <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
-              <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
-                <div class="text-black dark:text-neutral-300">Dynamic Total</div>
+              <div class="p-3 rounded-lg bg-blue-50">
+                <div class="text-black">Dynamic Total</div>
                 <div id="dynamicTotalHero" class="font-semibold text-lg">₹—</div>
               </div>
-              <div class="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
-                <div class="text-black dark:text-neutral-300">Static Total</div>
+              <div class="p-3 rounded-lg bg-emerald-50">
+                <div class="text-black">Static Total</div>
                 <div id="staticTotalHero" class="font-semibold text-lg">₹—</div>
               </div>
             </div>
-            <div class="mt-4 text-xs text-black dark:text-neutral-400">
+            <div class="mt-4 text-xs text-black">
               Recurring costs: Sanity Free, Resend Free, Hosting Free Tier, Domain (~₹1,200/year)
             </div>
           </aside>
@@ -488,11 +443,11 @@
     </header>
 
     <!-- Introduction -->
-    <section id="introduction" class="section-anchor py-20 bg-white dark:bg-transparent">
+    <section id="introduction" class="section-anchor py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Introduction</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+          <p class="mt-3 text-black max-w-3xl">
             The website will elevate Solar Technical Company's digital presence in K.S.A., showcasing engineering
             credibility, service depth, and proof of work while enabling effortless content updates via Sanity CMS.
           </p>
@@ -500,22 +455,24 @@
         <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <article class="glass p-5 reveal">
             <div class="chip"><i class="fa-solid fa-users"></i> Target Audience</div>
-            <p class="mt-3 text-sm text-black dark:text-neutral-300">
-              Industrial and commercial clients, government/municipal buyers, and EPC partners seeking reliable solar
+            <p class="mt-3 text-sm text-black">
+              • Industrial and commercial clients, government/municipal buyers, and EPC partners seeking reliable
+              solar
               engineering solutions.
             </p>
           </article>
           <article class="glass p-5 reveal">
             <div class="chip"><i class="fa-solid fa-bullseye"></i> Objectives</div>
-            <ul class="mt-3 text-sm text-black dark:text-neutral-300 list-disc ms-5 space-y-1">
-              <li>Communicate credibility with galleries, certificates, and awards</li>
+            <ul class="mt-3 text-sm text-black list-disc ms-5">
+              <li>Communicate
+                credibility with galleries, certificates, and awards</li>
               <li>Drive qualified inquiries via secure contact form</li>
               <li>Ensure fast updates without developer dependency (Dynamic option)</li>
             </ul>
           </article>
           <article class="glass p-5 reveal">
             <div class="chip"><i class="fa-solid fa-shield-halved"></i> Principles</div>
-            <ul class="mt-3 text-sm text-black dark:text-neutral-300 list-disc ms-5 space-y-1">
+            <ul class="mt-3 text-sm text-black list-disc ms-5">
               <li>Performance and accessibility</li>
               <li>Professional visual language (dark blue aesthetic)</li>
               <li>SEO and scalable information architecture</li>
@@ -526,11 +483,11 @@
     </section>
 
     <!-- Scope & Structure -->
-    <section id="scope" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+    <section id="scope" class="section-anchor py-20 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Project Scope & Finalized Structure</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">Pages and components aligned to your approved
+          <p class="mt-3 text-black max-w-3xl">Pages and components aligned to your approved
             structure.</p>
         </header>
 
@@ -538,10 +495,10 @@
           <!-- Home -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-house text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-house text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Home Page</h3>
             </div>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Dynamic hero: looping video with seamless zoom, transitions to carousel</li>
               <li>About, Services (CMS-driven), Our Customers, Why Choose Us</li>
               <li>Comprehensive footer with navigation and social links</li>
@@ -551,10 +508,10 @@
           <!-- Services -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-screwdriver-wrench text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-screwdriver-wrench text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Service Details (Dynamic Template)</h3>
             </div>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Reusable template generates one page per CMS service</li>
               <li>Fields for descriptions, specs, image galleries, related case studies</li>
             </ul>
@@ -563,10 +520,10 @@
           <!-- Gallery -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-images text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-images text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Gallery</h3>
             </div>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Filterable: Projects (Images/Videos), Certificates, Awards, Achievements</li>
               <li>All items managed via CMS for credibility and freshness</li>
             </ul>
@@ -575,10 +532,10 @@
           <!-- Contact -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-envelope text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-envelope text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Contact Page</h3>
             </div>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Embedded Google Map with “Get Directions”</li>
               <li>Secure contact form: Name, Phone, Email, Message, Reference</li>
               <li>Submissions routed via Resend with success/error handling</li>
@@ -588,10 +545,10 @@
           <!-- About -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-circle-info text-blue-600 text-xl"></i>
               <h3 class="font-semibold">About Us</h3>
             </div>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Derived from official documents with company history and team</li>
               <li>Structured for SEO with semantic HTML and schema</li>
             </ul>
@@ -600,10 +557,10 @@
           <!-- Customers -->
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-user-check text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-user-check text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Our Customers</h3>
             </div>
-            <p class="mt-3 text-sm text-black dark:text-neutral-300">
+            <p class="mt-3 text-sm text-black">
               CMS-managed client logos and names (initially placeholders), designed to scale as your portfolio grows.
             </p>
           </article>
@@ -613,7 +570,7 @@
         <div class="mt-10 reveal">
           <div class="flex items-center justify-between mb-3">
             <h3 class="font-semibold">High-Level System Workflow</h3>
-            <span class="text-xs text-black dark:text-neutral-400">Interactive diagram (zoom, pan,
+            <span class="text-xs text-black">Interactive diagram (zoom, pan,
               fullscreen)</span>
           </div>
           <div class="mermaid-container h-[420px]" id="workflowBox" aria-label="Mermaid diagram: high-level workflow">
@@ -641,7 +598,7 @@
                 classDef user fill:#DCFCE7,stroke:#059669,stroke-width:1px,color:#065f46;
               </div>
             </div>
-            <div class="px-3 pb-3 text-xs text-black dark:text-neutral-400">
+            <div class="px-3 pb-3 text-xs text-black">
               Tip: Drag to pan. Use trackpad pinch or the +/– buttons to zoom.
             </div>
           </div>
@@ -650,11 +607,11 @@
     </section>
 
     <!-- Technology Stack -->
-    <section id="tech-stack" class="section-anchor py-20 bg-white dark:bg-transparent">
+    <section id="tech-stack" class="section-anchor py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Technology Stack (Dynamic Website)</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+          <p class="mt-3 text-black max-w-3xl">
             A modern, scalable stack optimized for performance, SEO, and easy content management.
           </p>
         </header>
@@ -662,37 +619,37 @@
         <div class="mt-8 grid md:grid-cols-2 gap-6">
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3 mb-3">
-              <i class="fa-brands fa-react text-sky-600 dark:text-sky-300 text-xl"></i>
+              <i class="fa-brands fa-react text-sky-600 text-xl"></i>
               <h3 class="font-semibold">Next.js (React)</h3>
             </div>
-            <p class="text-sm text-black dark:text-neutral-300">
+            <p class="text-sm text-black">
               Server-side rendering and static generation for fast, SEO-friendly pages.
             </p>
           </article>
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3 mb-3">
-              <i class="fa-solid fa-paintbrush text-indigo-600 dark:text-indigo-300 text-xl"></i>
+              <i class="fa-solid fa-paintbrush text-indigo-600 text-xl"></i>
               <h3 class="font-semibold">Tailwind CSS</h3>
             </div>
-            <p class="text-sm text-black dark:text-neutral-300">
+            <p class="text-sm text-black">
               Rapid, professional UI development with responsive, accessible components.
             </p>
           </article>
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3 mb-3">
-              <i class="fa-solid fa-database text-emerald-600 dark:text-emerald-300 text-xl"></i>
+              <i class="fa-solid fa-database text-emerald-600 text-xl"></i>
               <h3 class="font-semibold">Sanity.io CMS</h3>
             </div>
-            <p class="text-sm text-black dark:text-neutral-300">
+            <p class="text-sm text-black">
               Headless CMS for flexible content schemas (services, galleries, pages) and real-time editing.
             </p>
           </article>
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3 mb-3">
-              <i class="fa-solid fa-paper-plane text-rose-600 dark:text-rose-300 text-xl"></i>
+              <i class="fa-solid fa-paper-plane text-rose-600 text-xl"></i>
               <h3 class="font-semibold">Resend (Email)</h3>
             </div>
-            <p class="text-sm text-black dark:text-neutral-300">
+            <p class="text-sm text-black">
               Reliable email delivery for the contact form with secure server-side handling.
             </p>
           </article>
@@ -701,11 +658,11 @@
     </section>
 
     <!-- Pricing & Investment -->
-    <section id="pricing" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+    <section id="pricing" class="section-anchor py-20 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Pricing & Investment</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">
+          <p class="mt-3 text-black max-w-3xl">
             End-to-end design, development, and deployment costs based on your approved scope.
           </p>
         </header>
@@ -718,7 +675,7 @@
               <span class="chip"><i class="fa-solid fa-bolt text-amber-600"></i> Recommended</span>
             </div>
             <table class="w-full mt-4 text-sm">
-              <thead class="text-left text-black dark:text-neutral-400">
+              <thead class="text-left text-black">
                 <tr>
                   <th class="py-2">Service</th>
                   <th class="py-2">Description</th>
@@ -727,14 +684,14 @@
               </thead>
               <tbody id="dynamicTable" class="align-top"></tbody>
               <tfoot>
-                <tr class="border-t border-neutral-200 dark:border-white/10">
+                <tr class="border-t border-neutral-200">
                   <td colspan="2" class="py-3 font-semibold">One-Time Development Cost</td>
                   <td id="dynamicTotalCell" class="py-3 font-semibold text-right">₹—</td>
                 </tr>
               </tfoot>
             </table>
 
-            <div class="mt-4 text-xs text-black dark:text-neutral-400">
+            <div class="mt-4 text-xs text-black">
               Recurring: Sanity (Free), Resend (Free), Hosting (Free Tier), Domain (~₹1,200/year)
             </div>
           </article>
@@ -746,7 +703,7 @@
               <span class="chip"><i class="fa-solid fa-scale-balanced text-blue-600"></i> Alternative</span>
             </div>
             <table class="w-full mt-4 text-sm">
-              <thead class="text-left text-black dark:text-neutral-400">
+              <thead class="text-left text-black">
                 <tr>
                   <th class="py-2">Service</th>
                   <th class="py-2">Description</th>
@@ -755,7 +712,7 @@
               </thead>
               <tbody id="staticTable" class="align-top"></tbody>
               <tfoot>
-                <tr class="border-t border-neutral-200 dark:border-white/10">
+                <tr class="border-t border-neutral-200">
                   <td colspan="2" class="py-3 font-semibold">One-Time Development Cost</td>
                   <td id="staticTotalCell" class="py-3 font-semibold text-right">₹—</td>
                 </tr>
@@ -770,7 +727,7 @@
           <div class="grid md:grid-cols-2 gap-4 text-sm">
             <div class="glass p-4">
               <div class="font-semibold mb-2"><i class="fa-solid fa-bolt text-amber-600 mr-2"></i>Dynamic (CMS)</div>
-              <ul class="list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <ul class="list-disc ms-5 space-y-1 text-black">
                 <li>CMS content updates without developer assistance</li>
                 <li>Dynamic service templates and gallery</li>
                 <li>Scales easily with new sections</li>
@@ -778,7 +735,7 @@
             </div>
             <div class="glass p-4">
               <div class="font-semibold mb-2"><i class="fa-solid fa-code text-emerald-600 mr-2"></i>Static</div>
-              <ul class="list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+              <ul class="list-disc ms-5 space-y-1 text-black">
                 <li>Lower initial investment</li>
                 <li>Content updates billed separately</li>
                 <li>Suitable for infrequent updates</li>
@@ -790,11 +747,11 @@
     </section>
 
     <!-- Timeline (Mermaid Gantt) -->
-    <section id="timeline" class="section-anchor py-20 bg-white dark:bg-transparent">
+    <section id="timeline" class="section-anchor py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Implementation Timeline (4–6 Weeks)</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">A realistic, milestone-based plan from
+          <p class="mt-3 text-black max-w-3xl">A realistic, milestone-based plan from
             discovery to deployment and handover.</p>
         </header>
 
@@ -824,7 +781,7 @@
               Final Revisions & Deployment : rel1, 2025-10-16, 7d
             </div>
           </div>
-          <div class="px-3 pb-3 text-xs text-black dark:text-neutral-400">
+          <div class="px-3 pb-3 text-xs text-black">
             Tip: Use the toolbar to zoom/pan. On mobile, use two-finger pinch/drag.
           </div>
         </div>
@@ -832,42 +789,34 @@
     </section>
 
     <!-- Value-Added Inclusions -->
-    <section id="value-adds" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+    <section id="value-adds" class="section-anchor py-20 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Value-Added Inclusions (Special Offer)</h2>
         </header>
-        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-circle-half-stroke text-blue-600 dark:text-blue-300 text-xl"></i>
-              <h3 class="font-semibold">Dual Theme</h3>
-            </div>
-            <p class="mt-2 text-sm text-black dark:text-neutral-300">Professional Light and Dark modes with a
-              theme switcher for viewing comfort.</p>
-          </article>
-          <article class="glass p-5 reveal">
-            <div class="flex items-center gap-3">
-              <i class="fa-solid fa-language text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-language text-blue-600 text-xl"></i>
               <h3 class="font-semibold">Bilingual Ready</h3>
             </div>
-            <p class="mt-2 text-sm text-black dark:text-neutral-300">Architecture supports English and Arabic
+            <p class="mt-2 text-sm text-black">Architecture supports English and Arabic
               content (RTL-aware UI).</p>
           </article>
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-magnifying-glass-chart text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-magnifying-glass-chart text-blue-600 text-xl"></i>
               <h3 class="font-semibold">On-Site SEO</h3>
             </div>
-            <p class="mt-2 text-sm text-black dark:text-neutral-300">Meta tags, semantic HTML, and schema markup
+            <p class="mt-2 text-sm text-black">Meta tags, semantic HTML, and schema markup
               from day one.</p>
           </article>
           <article class="glass p-5 reveal">
             <div class="flex items-center gap-3">
-              <i class="fa-solid fa-headset text-blue-600 dark:text-blue-300 text-xl"></i>
+              <i class="fa-solid fa-headset text-blue-600 text-xl"></i>
               <h3 class="font-semibold">6 Months Support</h3>
             </div>
-            <p class="mt-2 text-sm text-black dark:text-neutral-300">Complimentary post-launch support for bug
+            <p class="mt-2 text-sm text-black">Complimentary post-launch support for bug
               fixes and performance monitoring.</p>
           </article>
         </div>
@@ -875,7 +824,7 @@
     </section>
 
     <!-- Appendix -->
-    <section id="appendix" class="section-anchor py-20 bg-white dark:bg-transparent">
+    <section id="appendix" class="section-anchor py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Appendix: Page Structure (Quick View)</h2>
@@ -883,7 +832,7 @@
         <div class="mt-6 grid md:grid-cols-2 gap-6">
           <div class="glass p-5 reveal">
             <h3 class="font-semibold">Home Page Sections</h3>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Hero (Video → Carousel)</li>
               <li>About (summary)</li>
               <li>Services (CMS list)</li>
@@ -894,7 +843,7 @@
           </div>
           <div class="glass p-5 reveal">
             <h3 class="font-semibold">Other Pages</h3>
-            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black dark:text-neutral-300">
+            <ul class="mt-3 text-sm list-disc ms-5 space-y-1 text-black">
               <li>Service Details (dynamic template per service)</li>
               <li>Gallery (Projects, Certificates, Awards, Achievements)</li>
               <li>Contact (Map, Form)</li>
@@ -906,28 +855,28 @@
     </section>
 
     <!-- Contact / Next Steps -->
-    <section id="contact" class="section-anchor py-20 bg-neutral-50 dark:bg-white/5">
+    <section id="contact" class="section-anchor py-20 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="reveal">
           <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Next Steps</h2>
-          <p class="mt-3 text-black dark:text-neutral-300 max-w-3xl">Please review the options and confirm your
+          <p class="mt-3 text-black max-w-3xl">Please review the options and confirm your
             preferred approach. We will schedule a kickoff to begin design.</p>
         </header>
 
         <div class="mt-6 grid lg:grid-cols-3 gap-6">
           <div class="glass p-5 reveal">
             <h3 class="font-semibold">1) Review</h3>
-            <p class="text-sm text-black dark:text-neutral-300">Compare Dynamic and Static options and validate
+            <p class="text-sm text-black">Compare Dynamic and Static options and validate
               the timeline.</p>
           </div>
           <div class="glass p-5 reveal">
             <h3 class="font-semibold">2) Confirm</h3>
-            <p class="text-sm text-black dark:text-neutral-300">Approve the quotation and select the chosen
+            <p class="text-sm text-black">Approve the quotation and select the chosen
               approach.</p>
           </div>
           <div class="glass p-5 reveal">
             <h3 class="font-semibold">3) Kickoff</h3>
-            <p class="text-sm text-black dark:text-neutral-300">We start with discovery and UI/UX design (Week 1).
+            <p class="text-sm text-black">We start with discovery and UI/UX design (Week 1).
             </p>
           </div>
         </div>
@@ -944,19 +893,19 @@
         <div class="mt-10 glass p-6 reveal">
           <h3 class="font-semibold mb-2">Contact</h3>
           <div class="grid md:grid-cols-3 gap-3 text-sm">
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-600 dark:text-blue-300"></i>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-600"></i>
               <a id="contactEmail" class="underline" href="#">contact@sheriax.com</a>
             </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-600 dark:text-blue-300"></i> <a
-                id="contactPhone" class="underline" href="#">+91 7338923502</a></div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600 dark:text-blue-300"></i> <a
-                id="contactWebsite" class="underline" href="#" target="_blank" rel="noopener">Website</a></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-600"></i> <a id="contactPhone"
+                class="underline" href="#">+91 7338923502</a></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600"></i> <a id="contactWebsite"
+                class="underline" href="#" target="_blank" rel="noopener">Website</a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="py-10 text-center text-xs text-black dark:text-neutral-400">
+    <footer class="py-10 text-center text-xs text-black">
       © <span id="year"></span> Sheriax — Proposal for Solar Technical Company (K.S.A.)
     </footer>
   </main>
@@ -983,7 +932,7 @@
       contact: {
         email: "contact@sheriax.com",
         phone: "+91 7338923502",
-        website: "https://sheriax.com   "
+        website: "https://sheriax.com"
       },
       meta: {
         company: "Solar Technical Company (K.S.A.)",
@@ -1029,9 +978,9 @@
       CONFIG.pricing.dynamic.forEach(item => {
         dynSum += item.amount;
         dynTbody.insertAdjacentHTML('beforeend', `
-            <tr class="border-b border-neutral-100 dark:border-white/5">
-              <td class="py-2 font-medium">${item.service}</td>
-              <td class="py-2 text-black dark:text-neutral-300">${item.description}</td>
+            <tr class="border-b border-neutral-100">
+              <td class="py-2 font-medium">${translateText(item.service)}</td>
+              <td class="py-2 text-black">${translateText(item.description)}</td>
               <td class="py-2 text-right">${formatINR(item.amount)}</td>
             </tr>
           `);
@@ -1039,9 +988,9 @@
       CONFIG.pricing.static.forEach(item => {
         staSum += item.amount;
         staTbody.insertAdjacentHTML('beforeend', `
-            <tr class="border-b border-neutral-100 dark:border-white/5">
-              <td class="py-2 font-medium">${item.service}</td>
-              <td class="py-2 text-black dark:text-neutral-300">${item.description}</td>
+            <tr class="border-b border-neutral-100">
+              <td class="py-2 font-medium">${translateText(item.service)}</td>
+              <td class="py-2 text-black">${translateText(item.description)}</td>
               <td class="py-2 text-right">${formatINR(item.amount)}</td>
             </tr>
           `);
@@ -1055,18 +1004,7 @@
       $("#staticTotalHero").textContent = formatINR(staSum);
     }
 
-    /* Theme & language toggles */
-    function setupThemeToggle() {
-      const apply = (mode) => { document.documentElement.setAttribute("data-theme", mode); localStorage.setItem("theme", mode); };
-      const saved = localStorage.getItem("theme");
-      apply(saved || "light");
-      const toggles = ["#themeToggle", "#themeToggleMobile"].map(id => $(id)).filter(Boolean);
-      toggles.forEach(btn => btn.addEventListener("click", () => {
-        const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-        apply(next);
-      }));
-    }
-
+    /* Language toggles */
     const TEXT = {
       en: {
         "nav-overview": "Overview",
@@ -1092,17 +1030,341 @@
       }
     };
 
+    /* Comprehensive phrase-level translations by exact text match */
+    const TRANSLATIONS = {
+      en: {},
+      ar: {
+        // Global / utility
+        "Skip to content": "تخطي إلى المحتوى",
+        "Proposal": "عرض",
+        "ID:": "المعرف:",
+        "Date:": "التاريخ:",
+        "Valid:": "صالح لمدة:",
+        "Overview": "نظرة عامة",
+        "Introduction": "مقدمة",
+        "Scope & Structure": "النطاق والبنية",
+        "Technology Stack": "حزمة التقنيات",
+        "Pricing & Investment": "التسعير والاستثمار",
+        "Implementation Timeline": "الجدول الزمني للتنفيذ",
+        "Value-Added Inclusions": "القيمة المضافة",
+        "Appendix: Page Structure": "الملحق: بنية الصفحات",
+        "Next Steps & Contact": "الخطوات التالية والتواصل",
+        "Quick Reference": "مرجع سريع",
+        "Dynamic Total": "الإجمالي (ديناميكي)",
+        "Static Total": "الإجمالي (ثابت)",
+        "Timeline": "الجدول الزمني",
+        "EN/AR": "إنجليزي/عربي",
+
+        // Accessibility labels
+        "Mermaid diagram: high-level workflow": "مخطط Mermaid: سير العمل عالي المستوى",
+        "Mermaid diagram: project timeline": "مخطط Mermaid: الجدول الزمني للمشروع",
+
+        // Mermaid workflow node/edge labels
+        "Sanity CMS": "نظام إدارة المحتوى Sanity",
+        "Content API": "واجهة برمجة تطبيقات المحتوى",
+        "Next.js Frontend": "واجهة Next.js الأمامية",
+        "Vercel/Netlify CDN": "شبكة توزيع المحتوى Vercel/Netlify",
+        "Visitor": "زائر",
+        "Deployed": "تم النشر",
+        "Requests": "طلبات",
+        "Submits Form": "يرسل النموذج",
+        "Contact Form Handler": "معالج نموذج التواصل",
+        "Deliver Email": "إرسال البريد",
+        "Resend API": "واجهة Resend",
+        "Routes To": "يوجه إلى",
+        "Company Inbox": "صندوق بريد الشركة",
+
+        // Mermaid Gantt labels
+        "Project Timeline (4–6 Weeks)": "الجدول الزمني للمشروع (٤–٦ أسابيع)",
+        "Week 1": "الأسبوع ١",
+        "Weeks 2–4": "الأسابيع ٢–٤",
+        "Week 5": "الأسبوع ٥",
+        "Week 6": "الأسبوع ٦",
+        "Discovery & UI/UX Design": "الاستكشاف وتصميم واجهة وتجربة المستخدم",
+        "Frontend Dev & CMS Integration": "تطوير الواجهة الأمامية وتكامل نظام إدارة المحتوى",
+        "Integration, Testing, Feedback": "التكامل والاختبار والملاحظات",
+        "Final Revisions & Deployment": "المراجعات النهائية والإطلاق",
+
+        // Hero
+        "Solar Technical Co. (K.S.A.)": "شركة سولار التقنية (المملكة العربية السعودية)",
+        "Dynamic + Static Options": "خيارات ديناميكية وثابتة",
+        "Website Development Quotation": "عرض سعر تطوير موقع إلكتروني",
+        "A professional, dynamic, and scalable website to establish a strong digital presence, showcase technical expertise, and drive client engagement. Includes a Sanity CMS option for easy content management and an alternative Static site option for comparison.": "موقع إلكتروني احترافي وديناميكي وقابل للتوسع لتعزيز الحضور الرقمي، وإبراز الخبرة الفنية، وزيادة تفاعل العملاء. يتضمن خيار نظام إدارة المحتوى Sanity لسهولة إدارة المحتوى، بالإضافة إلى خيار موقع ثابت للمقارنة.",
+
+        // Hero bento
+        "Dynamic (CMS) Website": "موقع ديناميكي (نظام إدارة محتوى)",
+        "Sanity.io + Next.js + Tailwind": "Sanity.io + Next.js + Tailwind",
+        "CMS-managed content and dynamic templates": "محتوى مُدار عبر نظام إدارة المحتوى وقوالب ديناميكية",
+        "Video + carousel hero, responsive UI": "واجهة بطل فيديو مع سلايدر، وواجهة متجاوبة",
+        "Resend-powered contact form": "نموذج تواصل مدعوم بخدمة Resend",
+
+        "Static Website": "موقع ثابت",
+        "HTML/CSS/JS + SSG": "HTML/CSS/JS + SSG",
+        "Lower initial cost": "تكلفة أولية أقل",
+        "Developer-assisted content updates": "تحديثات المحتوى بمساعدة المطور",
+        "Serverless function for contact form": "دالة بلا خادم لنموذج التواصل",
+
+        // Hero buttons
+        "View Pricing": "عرض الأسعار",
+        "See Timeline": "عرض الجدول الزمني",
+
+        // Executive summary
+        "Executive Summary": "الملخص التنفيذي",
+        "We propose a dynamic, CMS-enabled website with a professional design system, performant frontend, and robust content workflows. An alternative static implementation is also provided for comparison.": "نقترح موقعًا ديناميكيًا مدعومًا بنظام إدارة محتوى مع نظام تصميم احترافي وواجهة أمامية عالية الأداء وتدفقات محتوى قوية. كما نوفر تنفيذًا ثابتًا بديلًا للمقارنة.",
+        "Dynamic hero with seamless video-to-carousel transition": "بطل ديناميكي مع انتقال سلس من الفيديو إلى السلايدر",
+        "CMS-driven services, gallery, and content pages": "خدمات ومعرض وصفحات محتوى مدارة عبر نظام CMS",
+        "Resend-secured contact form and Google Maps embed": "نموذج تواصل مؤمن بـ Resend وتضمين خرائط جوجل",
+        "Bilingual-ready and on-site SEO": "جاهز للغتين وتحسين محركات البحث على الموقع",
+        "Recurring costs: Sanity Free, Resend Free, Hosting Free Tier, Domain (~₹1,200/year)": "تكاليف متكررة: Sanity مجانًا، Resend مجانًا، الاستضافة ضمن الخطة المجانية، النطاق (~₹1,200/سنة)",
+
+        // Introduction
+        "The website will elevate Solar Technical Company's digital presence in K.S.A., showcasing engineering credibility, service depth, and proof of work while enabling effortless content updates via Sanity CMS.": "سيعزز الموقع الحضور الرقمي لشركة سولار التقنية في المملكة العربية السعودية، مع إبراز الموثوقية الهندسية وعمق الخدمات وأدلة الإنجاز، مع تمكين تحديثات المحتوى بسهولة عبر نظام Sanity.",
+        "Target Audience": "الجمهور المستهدف",
+        "Objectives": "الأهداف",
+        "Principles": "المبادئ",
+        "• Industrial and commercial clients, government/municipal buyers, and EPC partners seeking reliable solar engineering solutions.": "• عملاء صناعيون وتجاريون، وجهات حكومية/بلدية، وشركاء EPC يبحثون عن حلول هندسية موثوقة للطاقة الشمسية.",
+        "Communicate credibility with galleries, certificates, and awards": "تعزيز المصداقية عبر المعارض والشهادات والجوائز",
+        "Drive qualified inquiries via secure contact form": "زيادة الاستفسارات المؤهلة عبر نموذج تواصل آمن",
+        "Ensure fast updates without developer dependency (Dynamic option)": "ضمان تحديثات سريعة دون الاعتماد على المطور (الخيار الديناميكي)",
+        "Performance and accessibility": "الأداء وسهولة الوصول",
+        "Professional visual language (dark blue aesthetic)": "لغة بصرية احترافية (طابع أزرق داكن)",
+        "SEO and scalable information architecture": "تهيئة لمحركات البحث وبنية معلومات قابلة للتوسع",
+
+        // Scope & Structure
+        "Project Scope & Finalized Structure": "نطاق المشروع والبنية النهائية",
+        "Pages and components aligned to your approved structure.": "الصفحات والمكونات وفق البنية المعتمدة.",
+        "Home Page": "الصفحة الرئيسية",
+        "Dynamic hero: looping video with seamless zoom, transitions to carousel": "بطل ديناميكي: فيديو متكرر مع تكبير سلس، والتحول إلى سلايدر",
+        "About, Services (CMS-driven), Our Customers, Why Choose Us": "نبذة، الخدمات (مدارة عبر CMS)، عملاؤنا، لماذا نحن",
+        "Comprehensive footer with navigation and social links": "تذييل شامل مع روابط تنقل وروابط اجتماعية",
+        "Service Details (Dynamic Template)": "تفاصيل الخدمة (قالب ديناميكي)",
+        "Reusable template generates one page per CMS service": "قالب قابل لإعادة الاستخدام يُنشئ صفحة لكل خدمة في CMS",
+        "Fields for descriptions, specs, image galleries, related case studies": "حقول للوصف والمواصفات ومعارض الصور ودراسات الحالة ذات الصلة",
+        "Gallery": "المعرض",
+        "Filterable: Projects (Images/Videos), Certificates, Awards, Achievements": "قابل للتصفية: المشاريع (صور/فيديو)، الشهادات، الجوائز، الإنجازات",
+        "All items managed via CMS for credibility and freshness": "جميع العناصر مُدارة عبر CMS للمصداقية والتجدد",
+        "Contact Page": "صفحة التواصل",
+        "Embedded Google Map with “Get Directions”": "خريطة Google مدمجة مع الحصول على الاتجاهات",
+        "Secure contact form: Name, Phone, Email, Message, Reference": "نموذج تواصل آمن: الاسم، الهاتف، البريد الإلكتروني، الرسالة، مرجع",
+        "Submissions routed via Resend with success/error handling": "إرسال الرسائل عبر Resend مع معالجة النجاح/الأخطاء",
+        "About Us": "من نحن",
+        "Derived from official documents with company history and team": "مستمد من الوثائق الرسمية مع تاريخ الشركة والفريق",
+        "Structured for SEO with semantic HTML and schema": "منظم لتحسين محركات البحث مع HTML دلالي ومخططات",
+        "Our Customers": "عملاؤنا",
+        "CMS-managed client logos and names (initially placeholders), designed to scale as your portfolio grows.": "شعارات وأسماء العملاء مُدارة عبر CMS (مبدئيًا عناصر وهمية)، مصممة للتوسع مع نمو أعمالكم.",
+
+        // Workflow
+        "High-Level System Workflow": "مخطط سير العمل عالي المستوى",
+        "Interactive diagram (zoom, pan, fullscreen)": "مخطط تفاعلي (تكبير، سحب، ملء الشاشة)",
+        "Tip: Drag to pan. Use trackpad pinch or the +/– buttons to zoom.": "تلميح: اسحب للتحريك. استخدم القرص على لوحة اللمس أو أزرار +/– للتكبير.",
+        "Tip: Use the toolbar to zoom/pan. On mobile, use two-finger pinch/drag.": "تلميح: استخدم شريط الأدوات للتكبير/التحريك. على الجوال، استخدم القرص/السحب بإصبعين.",
+
+        // Tech stack
+        "Technology Stack (Dynamic Website)": "حزمة التقنيات (الموقع الديناميكي)",
+        "A modern, scalable stack optimized for performance, SEO, and easy content management.": "حزمة حديثة وقابلة للتوسع ومُحسّنة للأداء وتحسين محركات البحث وسهولة إدارة المحتوى.",
+        "Next.js (React)": "Next.js (React)",
+        "Server-side rendering and static generation for fast, SEO-friendly pages.": "تصيير على الخادم وتوليد صفحات ثابتة لصفحات سريعة وصديقة لمحركات البحث.",
+        "Tailwind CSS": "Tailwind CSS",
+        "Rapid, professional UI development with responsive, accessible components.": "تطوير واجهات احترافية بسرعة مع مكونات متجاوبة وسهلة الوصول.",
+        "Sanity.io CMS": "Sanity.io CMS",
+        "Headless CMS for flexible content schemas (services, galleries, pages) and real-time editing.": "نظام إدارة محتوى Headless لمخططات محتوى مرنة (الخدمات، المعارض، الصفحات) وتحرير فوري.",
+        "Resend (Email)": "Resend (البريد)",
+        "Reliable email delivery for the contact form with secure server-side handling.": "تسليم موثوق للبريد لنموذج التواصل مع معالجة آمنة على الخادم.",
+
+        // Pricing
+        "Dynamic Website (with CMS)": "موقع ديناميكي (مع CMS)",
+        "Recommended": "موصى به",
+        "Service": "الخدمة",
+        "Description": "الوصف",
+        "Cost (INR)": "التكلفة (روبية)",
+        "One-Time Development Cost": "تكلفة التطوير لمرة واحدة",
+        "Recurring: Sanity (Free), Resend (Free), Hosting (Free Tier), Domain (~₹1,200/year)": "تكاليف متكررة: Sanity (مجاني)، Resend (مجاني)، الاستضافة (الخطة المجانية)، النطاق (~₹1,200/سنة)",
+        "Static Website": "موقع ثابت",
+        "Alternative": "بديل",
+        "Feature Comparison": "مقارنة الميزات",
+        "Dynamic (CMS)": "ديناميكي (CMS)",
+        "CMS content updates without developer assistance": "تحديثات محتوى عبر CMS دون الحاجة إلى مطور",
+        "Dynamic service templates and gallery": "قوالب خدمات ومعرض ديناميكي",
+        "Scales easily with new sections": "يتوسع بسهولة مع أقسام جديدة",
+        "Static": "ثابت",
+        "Lower initial investment": "استثمار أولي أقل",
+        "Content updates billed separately": "تحديثات المحتوى تُحاسَب بشكل منفصل",
+        "Suitable for infrequent updates": "مناسب للتحديثات غير المتكررة",
+        "UI/UX Design & Prototyping": "تصميم واجهة وتجربة المستخدم والنماذج الأولية",
+        "Complete visual system, wireframes, prototype (dark blue aesthetic).": "نظام بصري متكامل، مخططات هيكلية، نموذج أولي (بجمالية اللون الأزرق الداكن).",
+        "Frontend Website Development": "تطوير واجهة الموقع الأمامية",
+        "Next.js + Tailwind; video/carousel hero, dynamic templates, responsive.": "Next.js + Tailwind؛ بطل فيديو/دائري، قوالب ديناميكية، تصميم متجاوب.",
+        "Sanity.io CMS Integration": "تكامل نظام إدارة المحتوى Sanity.io",
+        "Backend setup, schemas (services, gallery, pages), training.": "إعداد الواجهة الخلفية، المخططات (خدمات، معرض، صفحات)، تدريب.",
+        "Google Maps Integration": "تكامل خرائط جوجل",
+        "Embedded map on Contact page.": "خريطة مدمجة في صفحة التواصل.",
+        "Resend Email Integration": "تكامل بريد Resend",
+        "Secure API integration, templates, success/error handling.": "تكامل آمن لواجهة برمجة التطبيقات، قوالب، معالجة النجاح/الخطأ.",
+        "Project Management & QA": "إدارة المشاريع وضمان الجودة",
+        "Oversight, cross-browser testing, performance optimization.": "إشراف، اختبار عبر المتصفحات، تحسين الأداء.",
+        "Static Website Development": "تطوير موقع ثابت",
+        "Identical to dynamic option.": "مطابق للخيار الديناميكي.",
+        "All pages/components; content hard-coded.": "جميع الصفحات/المكونات؛ المحتوى مبرمج بشكل ثابت.",
+        "Third-Party Integrations": "تكاملات الطرف الثالث",
+        "Google Maps + contact form via serverless function.": "خرائط جوجل + نموذج تواصل عبر دالة بدون خادم.",
+        "Oversight, communication, and testing.": "إشراف، تواصل، واختبار.",
+
+        // Timeline
+        "Implementation Timeline (4–6 Weeks)": "الجدول الزمني للتنفيذ (٤–٦ أسابيع)",
+        "A realistic, milestone-based plan from\n            discovery to deployment and handover.": "خطة واقعية قائمة على المراحل من الاستكشاف إلى الإطلاق والتسليم.",
+        "A realistic, milestone-based plan from discovery to deployment and handover.": "خطة واقعية قائمة على المراحل من الاستكشاف إلى الإطلاق والتسليم.",
+
+        // Value-added
+        "Value-Added Inclusions (Special Offer)": "إضافات ذات قيمة (عرض خاص)",
+        "Bilingual Ready": "جاهز للغتين",
+        "Architecture supports English and Arabic\n              content (RTL-aware UI).": "معمارية تدعم الإنجليزية والعربية (واجهة تراعي الاتجاه من اليمين إلى اليسار).",
+        "Architecture supports English and Arabic content (RTL-aware UI).": "معمارية تدعم الإنجليزية والعربية (واجهة تراعي الاتجاه من اليمين إلى اليسار).",
+        "On-Site SEO": "تهيئة لمحركات البحث",
+        "Meta tags, semantic HTML, and schema markup\n              from day one.": "وسوم وصفية وHTML دلالي ومخططات منذ اليوم الأول.",
+        "Meta tags, semantic HTML, and schema markup from day one.": "وسوم وصفية وHTML دلالي ومخططات منذ اليوم الأول.",
+        "6 Months Support": "دعم لمدة 6 أشهر",
+        "Complimentary post-launch support for bug\n              fixes and performance monitoring.": "دعم مجاني بعد الإطلاق لإصلاح الأخطاء ومراقبة الأداء.",
+        "Complimentary post-launch support for bug fixes and performance monitoring.": "دعم مجاني بعد الإطلاق لإصلاح الأخطاء ومراقبة الأداء.",
+
+        // Appendix
+        "Appendix: Page Structure (Quick View)": "الملحق: هيكل الصفحات (نظرة سريعة)",
+        "Home Page Sections": "أقسام الصفحة الرئيسية",
+        "Hero (Video → Carousel)": "البطل (فيديو → سلايدر)",
+        "About (summary)": "نبذة (موجز)",
+        "Services (CMS list)": "الخدمات (قائمة CMS)",
+        "Our Customers": "عملاؤنا",
+        "Why Choose Us": "لماذا نحن",
+        "Footer": "تذييل",
+        "Other Pages": "صفحات أخرى",
+        "Service Details (dynamic template per service)": "تفاصيل الخدمة (قالب ديناميكي لكل خدمة)",
+        "Gallery (Projects, Certificates, Awards, Achievements)": "المعرض (مشاريع، شهادات، جوائز، إنجازات)",
+        "Contact (Map, Form)": "التواصل (خريطة، نموذج)",
+        "About Us (detailed)": "من نحن (تفاصيل)",
+
+        // Next steps
+        "Next Steps": "الخطوات التالية",
+        "Please review the options and confirm your\n            preferred approach. We will schedule a kickoff to begin design.": "يرجى مراجعة الخيارات وتأكيد النهج المفضل. سنحدد موعد بدء العمل للبدء في التصميم.",
+        "Please review the options and confirm your preferred approach. We will schedule a kickoff to begin design.": "يرجى مراجعة الخيارات وتأكيد النهج المفضل. سنحدد موعد بدء العمل للبدء في التصميم.",
+        "1) Review": "1) مراجعة",
+        "Compare Dynamic and Static options and validate\n              the timeline.": "قارن بين الخيارين الديناميكي والثابت وتحقق من الجدول الزمني.",
+        "Compare Dynamic and Static options and validate the timeline.": "قارن بين الخيارين الديناميكي والثابت وتحقق من الجدول الزمني.",
+        "2) Confirm": "2) تأكيد",
+        "Approve the quotation and select the chosen\n              approach.": "اعتمد عرض السعر وحدد النهج المختار.",
+        "Approve the quotation and select the chosen approach.": "اعتمد عرض السعر وحدد النهج المختار.",
+        "3) Kickoff": "3) بدء",
+        "We start with discovery and UI/UX design (Week 1).": "نبدأ بالاستكشاف وتصميم UI/UX (الأسبوع 1).",
+        "Approve\n            Dynamic": "اعتماد الديناميكي",
+        "Approve Dynamic": "اعتماد الديناميكي",
+        "Approve\n            Static": "اعتماد الثابت",
+        "Approve Static": "اعتماد الثابت",
+        "Download\n            PDF": "تنزيل PDF",
+        "Download PDF": "تنزيل PDF",
+        "Contact": "التواصل",
+        "Website": "الموقع الإلكتروني",
+
+        // Footer
+        "© ": "© ",
+        "Sheriax — Proposal for Solar Technical Company (K.S.A.)": "شيرياكس — عرض لشركة سولار التقنية (المملكة العربية السعودية)",
+
+        // Toolbar titles
+        "Zoom in": "تكبير",
+        "Zoom out": "تصغير",
+        "Reset view": "إعادة التعيين",
+        "Fullscreen": "ملء الشاشة",
+
+        // Alerts
+        "ALERT_DYNAMIC": "شكرًا لك! سنمضي قدمًا في خيار الموقع الديناميكي (نظام إدارة المحتوى) وسنحدد موعد بدء العمل.",
+        "ALERT_STATIC": "شكرًا لك! سنمضي قدمًا في خيار الموقع الثابت وسنحدد موعد بدء العمل."
+      }
+    };
+
+    const getLang = () => document.documentElement.lang || localStorage.getItem("lang") || "en";
+    const translateText = (s, lang = getLang()) => {
+      if (!s) return s;
+      const key = typeof s === 'string' ? s.trim().replace(/\n\s+/g, ' ') : s;
+      const map = TRANSLATIONS[lang] || {};
+      return (map && map[key]) ? map[key] : s;
+    };
+
+    function translateToolbarTitles(lang) {
+      const titles = [
+        { sel: '[data-zoom-in]', key: 'Zoom in' },
+        { sel: '[data-zoom-out]', key: 'Zoom out' },
+        { sel: '[data-reset]', key: 'Reset view' },
+        { sel: '[data-fullscreen]', key: 'Fullscreen' },
+      ];
+      titles.forEach(({ sel, key }) => {
+        document.querySelectorAll(sel).forEach(btn => { btn.title = translateText(key, lang); });
+      });
+    }
+
+    function translateAriaLabels(lang) {
+      const map = [
+        { el: document.querySelector('#workflowBox'), key: 'Mermaid diagram: high-level workflow' },
+        { el: document.querySelector('#timelineBox'), key: 'Mermaid diagram: project timeline' },
+      ];
+      map.forEach(({ el, key }) => { if (el) el.setAttribute('aria-label', translateText(key, lang)); });
+    }
+
+    function translatePage(lang) {
+      const restore = lang === 'en';
+      const isTranslatableParent = (node) => node && node.nodeType === 1 && !['SCRIPT', 'STYLE'].includes(node.nodeName);
+
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue) return NodeFilter.FILTER_REJECT;
+          if (!isTranslatableParent(node.parentNode)) return NodeFilter.FILTER_REJECT;
+          const txt = node.nodeValue.trim();
+          if (!txt) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach(node => {
+        const original = node.nodeValue;
+        const trimmed = original.trim().replace(/\n\s+/g, ' ');
+        const leading = original.match(/^\s*/)[0];
+        const trailing = original.match(/\s*$/)[0];
+        const el = node.parentElement;
+
+        if (restore) {
+          if (el && el.dataset && el.dataset.i18nOriginal) {
+            node.nodeValue = leading + el.dataset.i18nOriginal + trailing;
+          }
+          return;
+        }
+
+        const translated = translateText(trimmed, lang);
+        if (translated && translated !== trimmed) {
+          if (el && (!el.dataset || !el.dataset.i18nOriginal)) {
+            el.dataset.i18nOriginal = original.trim();
+          }
+          node.nodeValue = leading + translated + trailing;
+        }
+      });
+
+      translateToolbarTitles(lang);
+      translateAriaLabels(lang);
+    }
+
     function setupLanguageToggle() {
       const apply = (lang) => {
         document.documentElement.lang = lang;
         document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
         localStorage.setItem("lang", lang);
-        // Update nav labels (example)
+        // Update nav labels
         const labels = ["overview", "intro", "scope", "tech", "pricing", "timeline", "value", "appendix", "contact"];
         labels.forEach(key => {
           const sel = `a[href="#${key === "overview" ? "hero" : key}"]`;
           $$(sel, $("#tocNav")).forEach(a => a.textContent = TEXT[lang][`nav-${key === "hero" ? "overview" : key}`]);
         });
+        // Rebuild dynamic tables in selected language
+        buildPricingTables();
+        // Translate static content in DOM
+        translatePage(lang);
       };
       const saved = localStorage.getItem("lang") || "en";
       apply(saved);
@@ -1157,6 +1419,12 @@
       // After render, attach controls
       const boxes = [$("#workflowBox"), $("#timelineBox")].filter(Boolean);
       boxes.forEach(setupPanZoomBox);
+
+      // Ensure translated labels inside generated SVG when Arabic is active
+      if (getLang() === 'ar') {
+        // slight delay to allow Mermaid to render
+        setTimeout(() => translatePage('ar'), 50);
+      }
     }
 
     function setupPanZoomBox(box) {
@@ -1227,10 +1495,14 @@
     /* Approvals (placeholder actions) */
     function setupApprovals() {
       $("#btnApproveDynamic")?.addEventListener("click", () => {
-        alert("Thank you! We’ll proceed with the Dynamic (CMS) option and schedule a kickoff.");
+        const lang = getLang();
+        const msg = lang === 'ar' ? TRANSLATIONS.ar["ALERT_DYNAMIC"] : "Thank you! We’ll proceed with the Dynamic (CMS) option and schedule a kickoff.";
+        alert(msg);
       });
       $("#btnApproveStatic")?.addEventListener("click", () => {
-        alert("Thank you! We’ll proceed with the Static option and schedule a kickoff.");
+        const lang = getLang();
+        const msg = lang === 'ar' ? TRANSLATIONS.ar["ALERT_STATIC"] : "Thank you! We’ll proceed with the Static option and schedule a kickoff.";
+        alert(msg);
       });
     }
 
@@ -1238,7 +1510,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       populateMeta();
       buildPricingTables();
-      setupThemeToggle();
       setupLanguageToggle();
       setupTOCHighlight();
       setupReveal();
